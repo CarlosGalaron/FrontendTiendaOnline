@@ -1,0 +1,236 @@
+.Catalogo-father {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+
+
+.Catalogo-body {
+    width: 100vw;
+    height: 80vh;
+    background-image: url(../../assets/images/BibliotecaAlejandría.png);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden; 
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; 
+}
+
+h1 {
+    color: white;
+}
+
+.flying-book {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-image: url(../../assets/images/openbook.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: fly 10s infinite linear;
+    opacity: 0.8; 
+    z-index: 2; 
+}
+
+
+@keyframes fly {
+    0% {
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%) rotate(0deg);
+    }
+    25% {
+        top: 50%;
+        left: 20%;
+        transform: translateX(-50%) rotate(45deg);
+    }
+    50% {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%) rotate(90deg);
+    }
+    75% {
+        top: 50%;
+        left: 80%;
+        transform: translateX(-50%) rotate(135deg);
+    }
+    100% {
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%) rotate(180deg);
+    }
+}
+.image-grid::-webkit-scrollbar{
+    margin: 1px;
+}
+.image-grid {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    gap: 15px; 
+    overflow-y: auto; 
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; 
+}
+
+.image-item {
+    flex: 1 1 calc(12.5% - 10px); 
+    max-width: calc(12.5% - 10px); 
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.image-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.image-item:hover {
+    transform: scale(1.05);
+}
+
+/* Modal styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    position: relative;
+    text-align: center;
+}
+
+.modal-image img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.modal-info h2 {
+    margin: 15px 0;
+}
+
+.modal-info p {
+    margin: 5px 0;
+}
+
+.modal-buttons button {
+    margin: 10px 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-buttons button:hover {
+    background-color: #0056b3;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+}
+
+.close-button:hover {
+    color: #000;
+}
+
+.cart-box {
+    position: fixed;
+    top: 0px;
+    right: 20px;
+    width: 250px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    z-index: 1000;
+    overflow-y: auto;
+    max-height: 300px; 
+}
+
+.cart-box h3 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.cart-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-box li {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.catalog-header {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.catalog-header h1 {
+    color: white;
+}
+
+.toggle-cart-button {
+    float: right;
+    margin-left: 55%;
+    padding: 10px 10px;
+    font-size: 1rem;
+    color: white;
+    background-color: #0056b3;
+    border: 1px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-cart-button:hover {
+    background-color: #007BFF;
+}

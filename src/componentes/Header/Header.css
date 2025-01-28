@@ -1,0 +1,90 @@
+.header-container{
+    width: 100vw;
+    height: 10vh;
+    background-color: rgb(55, 94, 201);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.header-button{
+    width: 12%;
+    height: 3em;
+    color: black;
+    background-color: white(55, 94, 201);
+    border: 2px solid rgb(7, 7, 63);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 4% 0 4%;
+    border-radius: 16%;
+    font-size: 18px;
+    font-weight: 1000;
+    cursor: pointer;
+}
+
+.header-button:hover{
+    background-color: lightcyan;
+    color: black;
+}
+
+.header-icon_button {
+    background: none;   
+    border: none;    
+    padding: 0;  
+    cursor: pointer; 
+    outline: none;          
+  }
+
+.header-icon_container{
+    width: 200px;
+}
+
+.headerH-container{
+    width: 100vw;
+    height: 10vh;
+    background-color: rgb(55, 94, 201);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding-right: 2em;
+}
+
+.headerH-icon_container{
+    border: 2px solid black;
+    width: 10vh;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: black;
+    color: white;
+}
+.wellcome-title {
+    font-size: 36px;
+    font-weight: 1000;
+    color: white;
+
+}
+
+.navigate-login-button, .nav-register-button {
+    width: 10vh;
+    height: 5vh;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    border-radius: 16%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 1000;
+    margin: 0 10px;
+}

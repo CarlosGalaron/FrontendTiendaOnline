@@ -1,0 +1,150 @@
+/* === Estilos generales === */
+.intercambio-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #00bfa5; /* Color de fondo principal */
+    border-radius: 10px;
+  }
+  
+  .intercambio-title {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 40px;
+  }
+  
+  .intercambio-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 50px;
+  }
+  
+  /* === Estilos compartidos para tarjetas de libros === */
+  .book-card,
+  .main-book-card {
+    background-color: #00796b;
+    color: white;
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+  }
+  
+  .book-card {
+    width: 350px;
+    height: 450px;
+  }
+  
+  .main-book-card {
+    width: 290px;
+  }
+  
+  .book-image {
+    background-color: #004d40;
+    border-radius: 5px;
+    height: 280px;
+    margin-bottom: 10px;
+  }
+  
+  .main-book-card img {
+    height: 330px;
+  }
+  
+  .book-title {
+    font-size: 1.5rem;
+    margin: 10px;
+  }
+  
+  .book-author {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #b2dfdb;
+  }
+  
+  /* === Estilos para la vista de MatchIntercambio (intercambiar2.jsx) === */
+  .book-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    gap: 20px;
+    max-height: 450px;
+  }
+
+  .book-list::-webkit-scrollbar{
+    width: 15px;
+    background-color: #09C;
+    border-radius: 20px;
+    }
+   .book-list::-webkit-scrollbar-thumb  {
+    background-color: #2546b8;
+    border-radius: 6px;
+   
+    }
+  
+  .list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #00796b;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-right: 10px;
+  }
+  
+  .list-item .book-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .list-item .book-title {
+    font-size: 1rem;
+    margin: 10px;
+  }
+  
+  /* === Botones de acción compartidos === */
+  .actions,
+  .book-list .list-item .action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .accept {
+    background-color: #4caf50;
+  }
+  
+  .swap {
+    background-color: #00897b;
+  }
+  
+  .reject {
+    background-color: #f44336;
+  }
+  
+  .action-btn:hover {
+    opacity: 0.8;
+  }
+  

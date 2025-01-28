@@ -1,0 +1,104 @@
+{
+  "propios": [
+    {
+      "nombre": "Cien años de soledad",
+      "autor": "Gabriel García Márquez",
+      "ISBN": "9780060883287",
+      "genero": "Realismo mágico",
+      "imagen": "https://www.rae.es/sites/default/files/portada_cien_anos_de_soledad_0.jpg"
+    },
+    {
+      "nombre": "Don Quijote de la Mancha",
+      "autor": "Miguel de Cervantes",
+      "ISBN": "9780142437230",
+      "genero": "Clásico",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrckP5QO40_Rciz-hcLiIHnl3NcpEqdANYvg&s"
+    },
+    {
+      "nombre": "1984",
+      "autor": "George Orwell",
+      "ISBN": "9780451524935",
+      "genero": "Distopía",
+      "imagen": "https://m.media-amazon.com/images/I/71sOSrd+JxL._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "Los miserables",
+      "autor": "Victor Hugo",
+      "ISBN": "9780451419439",
+      "genero": "Drama",
+      "imagen": "https://m.media-amazon.com/images/I/811H9ZY231L._UF1000,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "Drácula",
+      "autor": "Bram Stoker",
+      "ISBN": "9780141439846",
+      "genero": "Horror",
+      "imagen": "https://m.media-amazon.com/images/I/61ZTGfnZEKL._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "Frankenstein",
+      "autor": "Mary Shelley",
+      "ISBN": "9780486282114",
+      "genero": "Horror",
+      "imagen": "https://cdn.prod.website-files.com/6034d7d1f3e0f52c50b2adee/625452f43a8fa502af2b8a14_6034d7d1f3e0f525c6b2b272_frankenstein-mary-shelley-editorial-alma.jpeg"
+    },
+    {
+      "nombre": "El lobo estepario",
+      "autor": "Hermann Hesse",
+      "ISBN": "9780141181530",
+      "genero": "Filosofía",
+      "imagen": "https://m.media-amazon.com/images/I/31E0aMeeG8L._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "Los hermanos Karamázov",
+      "autor": "Fyodor Dostoevsky",
+      "ISBN": "9780140449242",
+      "genero": "Clásico",
+      "imagen": "https://www.albaeditorial.es/wp-content/uploads/2020/10/9788484289210-los-hermanos-karamazov-alba-editorial.jpg"
+    },
+    {
+      "nombre": "Cumbres borrascosas",
+      "autor": "Emily Brontë",
+      "ISBN": "9780141439556",
+      "genero": "Romance",
+      "imagen": "https://www.alianzaeditorial.es/imagenes/libros/grande/9788491819431-cumbres-borrascosas.jpg"
+    },
+    {
+      "nombre": "Jane Eyre",
+      "autor": "Charlotte Brontë",
+      "ISBN": "9780142437209",
+      "genero": "Drama",
+      "imagen": "https://m.media-amazon.com/images/I/81Zs-tJ6N0L._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "Fahrenheit 451",
+      "autor": "Ray Bradbury",
+      "ISBN": "9781451673319",
+      "genero": "Distopía",
+      "imagen": "https://m.media-amazon.com/images/I/61wtqek8ONL._AC_UF1000,1000_QL80_.jpg"
+    }
+  ],
+  "querer":[
+    {
+      "nombre": "Orgullo y prejuicio",
+      "autor": "Jane Austen",
+      "ISBN": "9780141439518",
+      "genero": "Romance",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTggtHZ5zY8q7D6N4iGkQnLekwNv0DRhGjv2g&s"
+    },
+    {
+      "nombre": "Matar a un ruiseñor",
+      "autor": "Harper Lee",
+      "ISBN": "9780061120084",
+      "genero": "Drama",
+      "imagen": "https://m.media-amazon.com/images/I/71ScCUdhhQL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "El gran Gatsby",
+      "autor": "F. Scott Fitzgerald",
+      "ISBN": "9780743273565",
+      "genero": "Ficción",
+      "imagen": "https://cdn.prod.website-files.com/6034d7d1f3e0f52c50b2adee/625428ec261ac384603ebab3_609ab57f2f76e83b56daaf5c_9788418395185_web.jpeg"
+    }
+  ]
+}

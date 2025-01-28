@@ -1,0 +1,68 @@
+.footer-container {
+    width: 100vw;
+    height: 10vh;
+    background-color: rgb(55, 94, 201);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    padding-right: 4em;
+    
+}
+
+.footer-icon-strecher {
+    width: 100vW;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    row-gap: 1rem;
+}
+
+.footer-icon-container {
+    width: 1em;
+    height: 1em;
+    background-color: rgb(55, 94, 201);
+    color: rgb(55, 94, 201);        
+    border: 2px solid rgb(7, 7, 63);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 4% 0 4%;
+    border-radius: 10%;
+}
+
+.footer-contact-container{
+    width: 20em;
+    display: flex;    
+    flex-direction: row;
+    gap: 2em;
+    font-size: 16px;
+    justify-content: left;
+    align-items: center;
+}
+
+.footer-text-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.footer-text-email{
+    color: orange;
+}
+
+.footer-contact-pic {
+    height: 4em;
+}
+
+.footer-fb-pic, .footer-insta-pic, .footer-x-pic, .footer-whatsapp-pic{
+    height: 2em;
+    margin: 0 1rem;
+}

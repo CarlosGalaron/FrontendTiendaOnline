@@ -1,0 +1,27 @@
+.search-bar-container {
+    margin-top: 20px;
+    position: relative;
+    left: 25%;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .criteria-selector select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    font-size: 14px;
+  }
+  
+  .search-bar input {
+    width: 44vw;
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  

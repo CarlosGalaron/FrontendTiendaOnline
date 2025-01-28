@@ -1,0 +1,332 @@
+[
+    {
+      "nombre": "Cien años de soledad",
+      "autor": "Gabriel García Márquez",
+      "ISBN": "9780060883287",
+      "genero": "Realismo mágico",
+      "imagen": "https://www.rae.es/sites/default/files/portada_cien_anos_de_soledad_0.jpg"
+    },
+    {
+      "nombre": "Don Quijote de la Mancha",
+      "autor": "Miguel de Cervantes",
+      "ISBN": "9780142437230",
+      "genero": "Clásico",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrckP5QO40_Rciz-hcLiIHnl3NcpEqdANYvg&s"
+    },
+    {
+      "nombre": "1984",
+      "autor": "George Orwell",
+      "ISBN": "9780451524935",
+      "genero": "Distopía",
+      "imagen": "https://m.media-amazon.com/images/I/71sOSrd+JxL._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "Orgullo y prejuicio",
+      "autor": "Jane Austen",
+      "ISBN": "9780141439518",
+      "genero": "Romance",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTggtHZ5zY8q7D6N4iGkQnLekwNv0DRhGjv2g&s"
+    },
+    {
+      "nombre": "Matar a un ruiseñor",
+      "autor": "Harper Lee",
+      "ISBN": "9780061120084",
+      "genero": "Drama",
+      "imagen": "https://m.media-amazon.com/images/I/71ScCUdhhQL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "El gran Gatsby",
+      "autor": "F. Scott Fitzgerald",
+      "ISBN": "9780743273565",
+      "genero": "Ficción",
+      "imagen": "https://cdn.prod.website-files.com/6034d7d1f3e0f52c50b2adee/625428ec261ac384603ebab3_609ab57f2f76e83b56daaf5c_9788418395185_web.jpeg"
+    },
+    {
+      "nombre": "Crimen y castigo",
+      "autor": "Fyodor Dostoevsky",
+      "ISBN": "9780140449136",
+      "genero": "Clásico",
+      "imagen": "https://cdn.prod.website-files.com/6034d7d1f3e0f52c50b2adee/6254541d8ae4df16d4e69bc8_6034d7d1f3e0f54529b2b1a1_Crimen-y-castigo-fiodor-dostoyevski-editorial-alma.jpeg"
+    },
+    {
+      "nombre": "Ulises",
+      "autor": "James Joyce",
+      "ISBN": "9780199535675",
+      "genero": "Modernismo",
+      "imagen": "https://www.alianzaeditorial.es/imagenes/libros/grande/9788413628646-ulises.jpg"
+    },
+    {
+      "nombre": "El señor de los anillos",
+      "autor": "J.R.R. Tolkien",
+      "ISBN": "9780261103252",
+      "genero": "Fantasía",
+      "imagen": "https://www.planetadelibros.com/usuaris/libros/fotos/210/original/portada_el-senor-de-los-anillos_j-r-r-tolkien_201601252224.jpg"
+    },
+    {
+      "nombre": "Harry Potter y la piedra filosofal",
+      "autor": "J.K. Rowling",
+      "ISBN": "9780439554930",
+      "genero": "Fantasía",
+      "imagen": "https://m.media-amazon.com/images/I/91SARoEG-dL._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "La Odisea",
+      "autor": "Homero",
+      "ISBN": "9780140268867",
+      "genero": "Épico",
+      "imagen": "https://www.libreriaalberti.com/media/img/portadas/_visd_0000JPG02LGY.jpg"
+    },
+    {
+      "nombre": "El extranjero",
+      "autor": "Albert Camus",
+      "ISBN": "9780679720201",
+      "genero": "Existencialismo",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOkLzeDWcb6zEjsH6w1ASjgwshi8-PQGauqg&s"
+    },
+    {
+      "nombre": "En busca del tiempo perdido",
+      "autor": "Marcel Proust",
+      "ISBN": "9780812969641",
+      "genero": "Clásico",
+      "imagen": "https://www.alianzaeditorial.es/imagenes/libros/grande/9788491045212-en-busca-del-tiempo-perdido--estuche.jpg"
+    },
+    {
+      "nombre": "Los miserables",
+      "autor": "Victor Hugo",
+      "ISBN": "9780451419439",
+      "genero": "Drama",
+      "imagen": "https://m.media-amazon.com/images/I/811H9ZY231L._UF1000,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "Drácula",
+      "autor": "Bram Stoker",
+      "ISBN": "9780141439846",
+      "genero": "Horror",
+      "imagen": "https://m.media-amazon.com/images/I/61ZTGfnZEKL._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "Frankenstein",
+      "autor": "Mary Shelley",
+      "ISBN": "9780486282114",
+      "genero": "Horror",
+      "imagen": "https://cdn.prod.website-files.com/6034d7d1f3e0f52c50b2adee/625452f43a8fa502af2b8a14_6034d7d1f3e0f525c6b2b272_frankenstein-mary-shelley-editorial-alma.jpeg"
+    },
+    {
+      "nombre": "El lobo estepario",
+      "autor": "Hermann Hesse",
+      "ISBN": "9780141181530",
+      "genero": "Filosofía",
+      "imagen": "https://m.media-amazon.com/images/I/31E0aMeeG8L._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "Los hermanos Karamázov",
+      "autor": "Fyodor Dostoevsky",
+      "ISBN": "9780140449242",
+      "genero": "Clásico",
+      "imagen": "https://www.albaeditorial.es/wp-content/uploads/2020/10/9788484289210-los-hermanos-karamazov-alba-editorial.jpg"
+    },
+    {
+      "nombre": "Cumbres borrascosas",
+      "autor": "Emily Brontë",
+      "ISBN": "9780141439556",
+      "genero": "Romance",
+      "imagen": "https://www.alianzaeditorial.es/imagenes/libros/grande/9788491819431-cumbres-borrascosas.jpg"
+    },
+    {
+      "nombre": "Jane Eyre",
+      "autor": "Charlotte Brontë",
+      "ISBN": "9780142437209",
+      "genero": "Drama",
+      "imagen": "https://m.media-amazon.com/images/I/81Zs-tJ6N0L._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "La metamorfosis",
+      "autor": "Franz Kafka",
+      "ISBN": "9780141045216",
+      "genero": "Existencialismo",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu2psYyC4I1jvkPIUATmukpF186WIBo8RrzQ&s"
+    },
+    {
+      "nombre": "Ana Karenina",
+      "autor": "Leo Tolstoy",
+      "ISBN": "9780143035008",
+      "genero": "Romance",
+      "imagen": "https://m.media-amazon.com/images/I/71wLs1YK8yL._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "Guerra y paz",
+      "autor": "Leo Tolstoy",
+      "ISBN": "9780140447934",
+      "genero": "Clásico",
+      "imagen": "https://m.media-amazon.com/images/I/81qDC+YMiyL._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "El guardián entre el centeno",
+      "autor": "J.D. Salinger",
+      "ISBN": "9780316769488",
+      "genero": "Ficción",
+      "imagen": "https://m.media-amazon.com/images/I/61fwcnFmmpL._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "El Hobbit",
+      "autor": "J.R.R. Tolkien",
+      "ISBN": "9780261102217",
+      "genero": "Fantasía",
+      "imagen": "https://m.media-amazon.com/images/I/71qpt1yWfbL._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "Fahrenheit 451",
+      "autor": "Ray Bradbury",
+      "ISBN": "9781451673319",
+      "genero": "Distopía",
+      "imagen": "https://m.media-amazon.com/images/I/61wtqek8ONL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "Moby Dick",
+      "autor": "Herman Melville",
+      "ISBN": "9780142437247",
+      "genero": "Clásico",
+      "imagen": "https://m.media-amazon.com/images/I/61PBBKyZ1rL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "El sonido y la furia",
+      "autor": "William Faulkner",
+      "ISBN": "9780679732242",
+      "genero": "Modernismo",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDqUvhaMJZ1sdITMl3oHwWr_8Rozw-IeU3Fw&s"
+    },
+    {
+      "nombre": "Madame Bovary",
+      "autor": "Gustave Flaubert",
+      "ISBN": "9780140449129",
+      "genero": "Romance",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQD0q2b1LnHy-5VvHqWGkriud5GMSBI6DJp5Q&s"
+    },
+    {
+      "nombre": "La isla del tesoro",
+      "autor": "Robert Louis Stevenson",
+      "ISBN": "9780141321004",
+      "genero": "Aventura",
+      "imagen": "https://m.media-amazon.com/images/I/71Xe94-ddFL._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "El principito",
+      "autor": "Antoine de Saint-Exupéry",
+      "ISBN": "9780156012195",
+      "genero": "Fábula",
+      "imagen": "https://m.media-amazon.com/images/I/714Hvb52n-L._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "Los juegos del hambre",
+      "autor": "Suzanne Collins",
+      "ISBN": "9780439023481",
+      "genero": "Distopía",
+      "imagen": "https://m.media-amazon.com/images/I/716ncIYKK3L._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "Divergente",
+      "autor": "Veronica Roth",
+      "ISBN": "9780062024039",
+      "genero": "Distopía",
+      "imagen": "https://m.media-amazon.com/images/I/81lWVW-H5JL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "Crepúsculo",
+      "autor": "Stephenie Meyer",
+      "ISBN": "9780316015844",
+      "genero": "Romance",
+      "imagen": "https://m.media-amazon.com/images/I/71V3mJ0sp9L._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "It",
+      "autor": "Stephen King",
+      "ISBN": "9781501142970",
+      "genero": "Horror",
+      "imagen": "https://m.media-amazon.com/images/I/81HKMoh8m0L._UF1000,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "Carrie",
+      "autor": "Stephen King",
+      "ISBN": "9780307743664",
+      "genero": "Horror",
+      "imagen": "https://m.media-amazon.com/images/I/71PDNOpC5uL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "El resplandor",
+      "autor": "Stephen King",
+      "ISBN": "9780307743657",
+      "genero": "Horror",
+      "imagen": "https://imagessl9.casadellibro.com/a/l/s5/19/9788466357319.webp"
+    },
+    {
+      "nombre": "Dune",
+      "autor": "Frank Herbert",
+      "ISBN": "9780441013593",
+      "genero": "Ciencia ficción",
+      "imagen": "https://www.libros-prohibidos.com/wp-content/uploads/2014/09/2788109_640px.jpg"
+    },
+    {
+      "nombre": "Neuromante",
+      "autor": "William Gibson",
+      "ISBN": "9780441569595",
+      "genero": "Ciencia ficción",
+      "imagen": "https://www.ccyberdark.net/wp-content/uploads/2021/05/Neuromancer.jpeg"
+    },
+    {
+      "nombre": "Fundación",
+      "autor": "Isaac Asimov",
+      "ISBN": "9780553293357",
+      "genero": "Ciencia ficción",
+      "imagen": "https://imagessl5.casadellibro.com/a/l/s5/45/9788497599245.webp"
+    },
+    {
+      "nombre": "El martillo de Dios",
+      "autor": "Arthur C. Clarke",
+      "ISBN": "9780553568714",
+      "genero": "Ciencia ficción",
+      "imagen": "https://m.media-amazon.com/images/I/71b-tJ7PJvL._UF1000,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "Cuentos completos",
+      "autor": "Edgar Allan Poe",
+      "ISBN": "9780143039907",
+      "genero": "Horror",
+      "imagen": "https://m.media-amazon.com/images/I/91NHyTnnSfL.jpg"
+    },
+    {
+      "nombre": "Rayuela",
+      "autor": "Julio Cortázar",
+      "ISBN": "9780307475548",
+      "genero": "Ficción",
+      "imagen": "https://m.media-amazon.com/images/I/913qsYmTdmL._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "Pedro Páramo",
+      "autor": "Juan Rulfo",
+      "ISBN": "9780375703248",
+      "genero": "Realismo mágico",
+      "imagen": "https://imagessl6.casadellibro.com/a/l/s5/06/9788493442606.webp"
+    },
+    {
+      "nombre": "La casa de los espíritus",
+      "autor": "Isabel Allende",
+      "ISBN": "9780553383804",
+      "genero": "Realismo mágico",
+      "imagen": "https://m.media-amazon.com/images/I/81y20kvHiWS._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "La sombra del viento",
+      "autor": "Carlos Ruiz Zafón",
+      "ISBN": "9780143034902",
+      "genero": "Ficción",
+      "imagen": "https://m.media-amazon.com/images/I/71BS32NFrsL._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "nombre": "El nombre del viento",
+      "autor": "Patrick Rothfuss",
+      "ISBN": "9780756404741",
+      "genero": "Fantasía",
+      "imagen": "https://m.media-amazon.com/images/I/91PjnllfsxL._AC_UF894,1000_QL80_.jpg"
+    }
+  ]
+  

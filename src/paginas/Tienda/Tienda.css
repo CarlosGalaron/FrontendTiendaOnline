@@ -1,0 +1,21 @@
+.father-tienda {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-direction:column;
+}
+
+.tienda-cesta {
+    width: 100vw;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    padding-top: 4rem;
+    background-color: white;
+}

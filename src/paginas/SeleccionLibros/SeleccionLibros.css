@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-y: auto; 
+}
+
+.image-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px; 
+    justify-content: center; 
+  }
+  
+  .image-item {
+    width: 150px; 
+    height: 240px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+  }
+  
+  .image-item:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+
+  .image-item img {
+    width: 100%;
+    height: auto;
+    display: block; 
+  }  
+
+  /* Estilos para el modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 60%;
+    max-width: 700px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .modal-image img{
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .modal-info {
+    margin-left: 50px;
+    text-align: left;
+    font-size: 1.1em;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    border: none; 
+    background: none; 
+    color: inherit; 
+    text-decoration: none; 
+    padding: 0; 
+    cursor: pointer; 
+  }
+
+
+
+  
+  .modal-buttons button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    height: 50px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: 0.3s;
+    margin-top: 10px;
+  }
+  
+  .modal-buttons button:hover {
+    background-color: #45a049;
+  }
+  
