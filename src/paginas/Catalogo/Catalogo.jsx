@@ -4,7 +4,6 @@ import Footer from '../../componentes/Footer/Footer';
 import './Catalogo.css';
 
 function Catalogo() {
-  const isLoggedIn = sessionStorage.getItem('idUsuario');
 
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);

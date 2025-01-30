@@ -3,7 +3,7 @@ import Header from '../../componentes/Header/Header';
 import Footer from '../../componentes/Footer/Footer';
 import './Registro.css';
 import { useNavigate } from 'react-router-dom';
-import { createUser } from '../../api.js';
+import { createUser } from '../../api/userApi.js';
 
 const Register = () => {
   const [name, setName] = useState('');

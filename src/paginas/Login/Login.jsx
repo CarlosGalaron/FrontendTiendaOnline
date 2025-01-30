@@ -3,7 +3,7 @@ import Header from '../../componentes/Header/Header';
 import Footer from '../../componentes/Footer/Footer';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
-import { loginUser } from '../../api.js';
+import { loginUser } from '../../api/userApi.js';
 
 function Login() {
   const [email, setEmail] = useState('');

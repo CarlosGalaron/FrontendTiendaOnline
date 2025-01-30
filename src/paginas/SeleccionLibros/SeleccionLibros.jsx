@@ -11,11 +11,7 @@ const ImageGrid = () => {
   const [biblioteca, setBiblioteca] = useState([]);
   const [demandas, setDemandas] = useState([]);
 
-  useEffect(() => {
-
-    if (!sessionStorage.getItem('idUsuario')) {
-      window.location.href = '/login';
-  } 
+  useEffect(() => { 
     
     const fetchImages = async () => {
       try {

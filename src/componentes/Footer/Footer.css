@@ -37,7 +37,8 @@
 }
 
 .footer-contact-container{
-    width: 20em;
+    width: 24em;
+    height: 10vh;
     display: flex;    
     flex-direction: row;
     gap: 2em;
@@ -59,7 +60,7 @@
 }
 
 .footer-contact-pic {
-    height: 4em;
+    height: 8vh
 }
 
 .footer-fb-pic, .footer-insta-pic, .footer-x-pic, .footer-whatsapp-pic{

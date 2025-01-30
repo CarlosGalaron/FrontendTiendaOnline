@@ -13,11 +13,6 @@ function LibrosIntercambio() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    
-      if (!sessionStorage.getItem('idUsuario')) {
-        window.location.href = '/login';
-    } 
-
 
     const fetchLibros = async () => {
       try {

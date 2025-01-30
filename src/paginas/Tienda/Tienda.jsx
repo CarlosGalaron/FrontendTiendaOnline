@@ -8,10 +8,6 @@ function Tienda() {
   const [cartBooks, setCartBooks] = useState([]);
 
   useEffect(() => {
-
-    if (!sessionStorage.getItem('idUsuario')) {
-      window.location.href = '/login';
-  } 
     
     // Recupera la lista de libros desde localStorage al cargar la página
     const storedCart = JSON.parse(localStorage.getItem('cart')) || [];

@@ -1,3 +1,4 @@
+//Header.jsx
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Header.css';
@@ -7,10 +8,20 @@ function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    // Verificar si hay un token almacenado en localStorage
-    const token = localStorage.getItem('authToken');
-    setIsLoggedIn(!!token); // Convertir el token en un valor booleano
+    const checkLoginStatus = () => {
+      const token = localStorage.getItem('authToken');
+      setIsLoggedIn(!!token);
+    };
+
+    // Escuchar cambios en localStorage
+    window.addEventListener('storage', checkLoginStatus);
+    checkLoginStatus(); // Verificar al montar
+
+    return () => {
+      window.removeEventListener('storage', checkLoginStatus);
+    };
   }, []);
+
 
   const handleLogout = () => {
     localStorage.removeItem('authToken'); // Eliminar el token del almacenamiento
@@ -27,7 +38,7 @@ function Header() {
   };
 
   const handleLogoClick = () => {
-    navigate('/catalogo'); 
+    navigate('/catalogo'); // Ir a la vista de catalogo
   };
 
   return (
@@ -38,11 +49,11 @@ function Header() {
 
       {isLoggedIn ? (
         <>
-          <button className="header-button" onClick={() => navigate('/Catalogo')}>Tienda</button>
-          <button className="header-button" onClick={() => navigate('/Seleccion')}>Selección de libros</button>
+          <button className="header-button" onClick={() => navigate('/catalogo')}>Tienda</button>
+          <button className="header-button" onClick={() => navigate('/seleccion')}>Selección de libros</button>
           <button className="header-button" onClick={() => navigate('/biblioteca')}>Usuario</button>
-          <button className="header-button" onClick={() => navigate('/tienda')}>CESTA</button>
-          <button className="header-button logout-button" onClick={handleLogout}>CERRAR SESIÓN</button>
+          <button className="header-button" onClick={() => navigate('/tienda')}>Cesta</button>
+          <button className="header-button logout-button" onClick={handleLogout}>LOG OUT</button>
         </>
       ) : (
         <div className="headerH-container">
