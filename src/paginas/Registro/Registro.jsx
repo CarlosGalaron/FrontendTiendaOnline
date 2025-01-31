@@ -29,11 +29,11 @@ const Register = () => {
       <div className="register-body">
         <div className="register-container">
           <h1 className="register-title">Registro</h1>
-          <form className='register-form' onSubmit={handleSubmit}>
-            <input className='register-form-input' type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" />
-            <input className='register-form-input' type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
-            <input className='register-form-input' type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
-            <button className='register-form-button' type="submit">Register</button>
+          <form className='form-group' onSubmit={handleSubmit}>
+            <input className='register-input-text' type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" />
+            <input className='register-input-text' type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
+            <input className='register-input-text' type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
+            <button className='button-register' type="submit">Register</button>
           </form>
         </div>
       </div>

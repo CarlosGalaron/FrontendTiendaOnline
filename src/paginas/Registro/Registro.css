@@ -24,13 +24,13 @@
 }
 
 .register-container{
-  padding-top: 2%;
-  padding-bottom: 2%;
-  width: 30vw;
-  height: 45vh;
+  padding-top: 1em;
+  padding-bottom: 2em;
+  width: 24em;
+  height: 24em;
   display: flex;
-  justify-content: space-between;
-  align-items:center;
+  justify-content: center;
+  align-items: center;  
   flex-direction: column;
   background-color: rgb(55, 94, 201);
   color: white;
@@ -38,8 +38,15 @@
   border-radius: 12px;        
   box-sizing: border-box;
 }
+
 .form-group{
-  margin: 16px;
+  padding-top: 2em;
+  font-size: 16px;
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5em;
   
 }
 
@@ -53,22 +60,26 @@
   cursor: default;
 }
 .register-input-text{
-  width: 20em;
+  width: 18em;
   height: 32px;
   border-radius: 10px;
   border: none;
-  margin: 1%;
   border: 1px solid black;
   box-sizing: border-box;
+  padding-left: 5px;
+}
+
+.register-input-text:focus{
+  border: 2px solid black;
 }
 
 .button-register{
+  margin-top: 1em;
   width: 10em;
   height: 3em;
   font-size: 16px;
   border-radius: 8px;
   border: none;
-  margin-left: 23%;
   background-color: darkgreen;
   border: 2px solid darkgray;
   color: white;
