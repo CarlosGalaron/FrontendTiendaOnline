@@ -15,10 +15,9 @@
     overflow: hidden; 
     position: relative; 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: left;
-    justify-content: center;
-    gap: 20px; 
+    justify-content: center;    
 }
 
 .IntercambioHome-nav {
@@ -49,4 +48,16 @@
     font-size: 24px;
     font-weight: bolder;
     cursor:grab;
+}
+
+.IntercambioHome-content {
+    background-image: url('../../assets/images/FondoIntercambio.png');
+    background-size: cover;
+    background-position: bottom;
+    z-index: -1;
+    width: calc(100vw - 200px);
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: top;
 }
