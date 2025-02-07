@@ -36,24 +36,18 @@ export const loginUser = async (credentials) => {
     return await response.json();
   };
   
+// REVISAR
+//Para pedir un usuario por id REVISAR
+// export const loadUser = async (id) => {
+//     const response = await fetch(`http://localhost:4000/api/users/${id}`, {
+//         method: 'GET',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//     });
 
-//Para pedir un usuario por id
-export const loadUser = async (userData) => {
-    const response = await fetch('http://localhost:4000/api/users/:id', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userData),
-    });
+//     if (!response.ok) throw new Error('Error al obtener el usuario');
 
-    const text = await response.text(); // Recibe la respuesta como texto
-    console.log(text); // Muestra el contenido de la respuesta
+//     return await response.json();
 
-    try {
-        const data = JSON.parse(text); // Intenta parsear el texto como JSON
-        return data;
-    } catch (error) {
-        throw new Error('Respuesta no es un JSON válido');
-    }
-};
+// };
