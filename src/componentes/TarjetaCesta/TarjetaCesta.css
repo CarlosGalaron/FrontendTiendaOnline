@@ -1,46 +1,58 @@
-.cesta-father {
-    padding: 1rem;
-    width: 32rem;
-    height: 14rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 0.5rem;
-    align-items: top;
-    border: 1px solid black;
+.tarjeta-cesta {
+  padding: 1rem;
+  width: 32rem;
+  height: 14rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 0.5rem;
+  align-items: flex-start;
+  border: 1px solid black;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.cesta-container {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
+.tarjeta-cesta img {
+  width: 8rem;
+  height: auto;
+  object-fit: cover;
+  border-radius: 5px;
 }
 
-
-.cesta-pic {
-    width: 8rem;
-    height: auto;
+.tarjeta-cesta-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex: 1;
 }
 
-.cesta-info {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    justify-content: top;
-    align-items: left;
+.tarjeta-cesta h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
 }
 
-.cesta-remove-button {
-    width: 12rem;
-    height: 2rem;
-    background-color: rgb(150, 17, 17);
-    border-radius: 5%;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    color: white;
+.tarjeta-cesta p {
+  font-size: 1rem;
+  margin: 0;
+  color: #555;
 }
 
-.cesta-remove-button:hover {
-    background-color: #c0392b;
-  }
+.tarjeta-cesta button {
+  width: 12rem;
+  height: 2rem;
+  background-color: rgb(150, 17, 17);
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.tarjeta-cesta button:hover {
+  background-color: #c0392b;
+}
