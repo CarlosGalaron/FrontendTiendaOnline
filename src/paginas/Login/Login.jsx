@@ -1,4 +1,3 @@
-// Login.jsx
 import React, { useState } from 'react';
 import Header from '../../componentes/Header/Header';
 import Footer from '../../componentes/Footer/Footer';
@@ -15,13 +14,15 @@ function Login() {
     e.preventDefault();
 
     try {
-      const { token } = await loginUser({ email, password });
+      const { token, user } = await loginUser({ email, password });
       console.log('Token recibido:', token);
+      console.log('Usuario:', user);
 
-      // Guardar el token en localStorage (opcional)
+      // Guardar el token y datos del usuario en localStorage
       localStorage.setItem('authToken', token);
+      localStorage.setItem('user', JSON.stringify(user));
 
-      // Navegar a la interfaz del juego
+      // Redirigir al catálogo después del login
       navigate('/catalogo');
     } catch (error) {
       console.error('Error al iniciar sesión:', error.message);
@@ -33,37 +34,37 @@ function Login() {
     navigate('/registro');
   };
 
-    return (
-        <div className="login-father">
-            <Header />
-            <div className="login-body">
-                <div className="login-container">
-                    <h1 className="login-title">LOG IN</h1>
-                    <input
-                        type="text"
-                        className="login-input-text"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <input
-                        type="password"
-                        className="login-input-text"
-                        placeholder="Contraseña"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <button className="button-login" onClick={handleSubmit}>
-                        Iniciar sesión
-                    </button>
-                    <p className="login-link" onClick={handleNavigate}>
-                        ¿No estás registrado?
-                    </p>
-                </div>
-            </div>
-            <Footer />
+  return (
+    <div className="login-father">
+      <Header />
+      <div className="login-body">
+        <div className="login-container">
+          <h1 className="login-title">LOG IN</h1>
+          <input
+            type="text"
+            className="login-input-text"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            className="login-input-text"
+            placeholder="Contraseña"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button className="button-login" onClick={handleSubmit}>
+            Iniciar sesión
+          </button>
+          <p className="login-link" onClick={handleNavigate}>
+            ¿No estás registrado?
+          </p>
         </div>
-    );
+      </div>
+      <Footer />
+    </div>
+  );
 }
 
 export default Login;

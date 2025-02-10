@@ -4,10 +4,19 @@ import Header from '../../componentes/Header/Header';
 import FooterHomepage from '../../componentes/Footer/Footer';
 import Ofertas from '../../componentes/Ofertas/Ofertas';
 import Solicitudes from '../../componentes/Solicitudes/Solicitudes';
+import { createOffer, createRequest } from '../../api/bookApi'; // Importamos las nuevas funciones de la API
 
 function IntercambioHome() {
   const [selectedOption, setSelectedOption] = useState('chats');
   const [mostrarOfertas, setMostrarOfertas] = useState(true);
+
+  // Estados para capturar datos del formulario
+  const [offerData, setOfferData] = useState({ title: '', author: '', book_state: '' });
+  const [requestData, setRequestData] = useState({ title: '', author: '', book_state: '' });
+
+  // Obtener el ID del usuario autenticado desde localStorage
+  const user = JSON.parse(localStorage.getItem('user'));
+  const userId = user ? user.id : null;
 
   const handleOptionChange = (option) => {
     setSelectedOption(option);
@@ -15,6 +24,48 @@ function IntercambioHome() {
 
   const toggleBusqueda = () => {
     setMostrarOfertas(!mostrarOfertas);
+  };
+
+  // Función para manejar los cambios en los inputs
+  const handleInputChange = (event, setStateFunction) => {
+    const { name, value } = event.target;
+    setStateFunction((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  // Función para enviar una oferta
+  const handleCreateOffer = async (e) => {
+    e.preventDefault();
+    if (!userId) {
+      alert('Debes iniciar sesión para crear una oferta.');
+      return;
+    }
+
+    try {
+      await createOffer({ ...offerData, user_id: userId });
+      alert('Oferta creada con éxito');
+      setOfferData({ title: '', author: '', book_state: '' }); // Resetear formulario
+    } catch (error) {
+      console.error('Error al crear oferta:', error);
+      alert('No se pudo crear la oferta.');
+    }
+  };
+
+  // Función para enviar una solicitud
+  const handleCreateRequest = async (e) => {
+    e.preventDefault();
+    if (!userId) {
+      alert('Debes iniciar sesión para crear una solicitud.');
+      return;
+    }
+
+    try {
+      await createRequest({ ...requestData, user_id: userId });
+      alert('Solicitud creada con éxito');
+      setRequestData({ title: '', author: '', book_state: '' }); // Resetear formulario
+    } catch (error) {
+      console.error('Error al crear solicitud:', error);
+      alert('No se pudo crear la solicitud.');
+    }
   };
 
   const renderContent = () => {
@@ -57,28 +108,64 @@ function IntercambioHome() {
       case 'ofertas':
         return (
           <div className='Intercambio-form-body'>
-            <form className='form-oferta'>
+            <form className='form-oferta' onSubmit={handleCreateOffer}>
               <label>Título</label>
-              <input type="text" placeholder="Don Quijote de la Mancha" />
+              <input
+                type="text"
+                name="title"
+                placeholder="Don Quijote de la Mancha"
+                value={offerData.title}
+                onChange={(e) => handleInputChange(e, setOfferData)}
+              />
               <label>Autor</label>
-              <input type="text" placeholder="Miguel de Cervantes" />
+              <input
+                type="text"
+                name="author"
+                placeholder="Miguel de Cervantes"
+                value={offerData.author}
+                onChange={(e) => handleInputChange(e, setOfferData)}
+              />
               <label>Estado del libro</label>
-              <input type="text" placeholder="Nuevo/Seminuevo/Deteriorado" />
-              <button className='form-button'>Crear oferta</button>
+              <input
+                type="text"
+                name="book_state"
+                placeholder="Nuevo/Seminuevo/Deteriorado"
+                value={offerData.book_state}
+                onChange={(e) => handleInputChange(e, setOfferData)}
+              />
+              <button className='form-button' type="submit">Crear oferta</button>
             </form>
           </div>
         );
       case 'solicitudes':
         return (
           <div className='Intercambio-form-body'>
-            <form className='form-solicitud'>
+            <form className='form-solicitud' onSubmit={handleCreateRequest}>
               <label>Título</label>
-              <input type="text" placeholder="Don Quijote de la Mancha" />
+              <input
+                type="text"
+                name="title"
+                placeholder="Don Quijote de la Mancha"
+                value={requestData.title}
+                onChange={(e) => handleInputChange(e, setRequestData)}
+              />
               <label>Autor</label>
-              <input type="text" placeholder="Miguel de Cervantes" />
+              <input
+                type="text"
+                name="author"
+                placeholder="Miguel de Cervantes"
+                value={requestData.author}
+                onChange={(e) => handleInputChange(e, setRequestData)}
+              />
               <label>Estado del libro</label>
-              <input type="text" placeholder="Nuevo/Seminuevo/Deteriorado" />
-              <button className='form-button'>Crear solicitud</button>
+              <input
+                type="text"
+                name="book_state"
+                placeholder="Nuevo/Seminuevo/Deteriorado"
+                value={requestData.book_state}
+                onChange={(e) => handleInputChange(e, setRequestData)}
+              />
+              <button className='form-button' type="submit">Crear solicitud</button>
             </form>
           </div>
         );
@@ -91,14 +178,12 @@ function IntercambioHome() {
     <div className='IntercambioHome-father'>
       <Header />
       <nav className='IntercambioHome-nav'>
-        <button className='IntercambioHome-nav-button' onClick={() => handleOptionChange('chats')}>CHATS</button>
-        <button className='IntercambioHome-nav-button' onClick={() => handleOptionChange('mis-busquedas')}>MIS BÚSQUEDAS</button>
-        <button className='IntercambioHome-nav-button' onClick={() => handleOptionChange('ofertas')}>OFERTAS</button>
-        <button className='IntercambioHome-nav-button' onClick={() => handleOptionChange('solicitudes')}>SOLICITUDES</button>
+        <button onClick={() => handleOptionChange('chats')}>CHATS</button>
+        <button onClick={() => handleOptionChange('mis-busquedas')}>MIS BÚSQUEDAS</button>
+        <button onClick={() => handleOptionChange('ofertas')}>OFERTAS</button>
+        <button onClick={() => handleOptionChange('solicitudes')}>SOLICITUDES</button>
       </nav>
-      <div className='IntercambioHome-content'>
-        {renderContent()}
-      </div>
+      <div className='IntercambioHome-content'>{renderContent()}</div>
       <FooterHomepage />
     </div>
   );
