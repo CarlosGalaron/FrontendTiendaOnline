@@ -1,0 +1,93 @@
+/* Contenedor general */
+.solicitudes-container {
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: white;
+}
+
+/* Grid general */
+.solicitudes-grid {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 2fr; /* Ajusta la proporción entre columnas */
+    gap: 10px;
+    padding: 12px;
+    align-items: center;
+    text-align: center;
+}
+
+/* Encabezado */
+.solicitudes-header {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Elementos de la lista */
+.solicitudes-item {
+    border-bottom: 1px solid #ddd;
+    background-color: white;
+}
+
+.solicitudes-item:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Estados de los libros */
+.estado {
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 5px;
+}
+
+.estado.pendiente {
+    background-color: #ffeb3b;
+    color: #856404;
+}
+
+.estado.aprobado {
+    background-color: #28a745;
+    color: white;
+}
+
+.estado.rechazado {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Botones */
+.acciones {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #a71d2a;
+}
