@@ -102,3 +102,32 @@ export const createRequest = async ({ user_id, title, author, book_state }) => {
         throw error;
     }
 };
+
+// Para listar las ofertas y solicitudes de un usuario:
+export const getUserExchangeBooks = async (user_id) => {
+    try {
+        console.log(`Obteniendo ofertas y solicitudes del usuario ${user_id}...`);
+        
+        if (!user_id) {
+            console.error("⚠️ ERROR: `user_id` no tiene valor válido:", user_id);
+            throw new Error("El user_id no puede ser undefined o null");
+        }
+
+        const response = await fetch(`http://localhost:4000/api/books/exchange/${user_id}`);
+        const text = await response.text();
+        
+        console.log("Respuesta bruta del servidor:", text);
+        console.log("Código de estado HTTP:", response.status);
+
+        if (!response.ok) {
+            throw new Error(`Error del servidor: ${response.status} - ${text}`);
+        }
+
+        const data = JSON.parse(text);
+        console.log("Datos obtenidos:", data);
+        return data;
+    } catch (error) {
+        console.error("Error en getUserExchangeBooks:", error.message);
+        throw error;
+    }
+};
