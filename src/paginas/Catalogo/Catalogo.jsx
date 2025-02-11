@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../../componentes/Header/Header";
 import Footer from "../../componentes/Footer/Footer";
 import "./Catalogo.css";
-import { getBooks } from "../../api/bookApi"; // Importa la función getBooks
+import { getBooks } from "../../api/bookApi"; // Ahora usa el endpoint /catalog
 
 function Catalogo() {
   const [books, setBooks] = useState([]);
@@ -11,7 +11,7 @@ function Catalogo() {
   const [cartBooks, setCartBooks] = useState([]);
   const [isCartVisible, setIsCartVisible] = useState(false);
 
-  // Se obtiene el listado de libros desde el backend usando bookApi.js
+  // Se obtiene el listado de libros del catálogo desde el backend usando bookApi.js
   useEffect(() => {
     const fetchBooks = async () => {
       try {
@@ -58,7 +58,7 @@ function Catalogo() {
     setIsCartVisible(!isCartVisible);
   };
 
-  // Organiza los libros en filas de 8 elementos (puedes ajustar la cantidad según lo necesites)
+  // Organiza los libros en filas de 8 elementos (ajusta según sea necesario)
   const rows = [];
   for (let i = 0; i < books.length; i += 8) {
     rows.push(books.slice(i, i + 8));
@@ -129,6 +129,11 @@ function Catalogo() {
                 {selectedBook.ISBN && (
                   <p>
                     <strong>ISBN:</strong> {selectedBook.ISBN}
+                  </p>
+                )}
+                {selectedBook.book_state && (
+                  <p>
+                    <strong>Estado:</strong> {selectedBook.book_state}
                   </p>
                 )}
               </div>

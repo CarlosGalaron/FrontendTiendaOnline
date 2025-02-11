@@ -1,13 +1,13 @@
 // src/api/bookApi.js
 
 /**
- * Obtiene la lista de libros desde el backend.
+ * Obtiene la lista de libros del catálogo desde el backend.
  *
  * @returns {Promise<Array>} Un array con los libros obtenidos.
  * @throws {Error} Si la respuesta no es un JSON válido o ocurre otro error.
  */
 export const getBooks = async () => {
-  const response = await fetch("http://localhost:4000/api/books", {
+  const response = await fetch("http://localhost:4000/api/catalog", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
