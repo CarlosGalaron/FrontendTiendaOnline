@@ -43,31 +43,6 @@ export const createOffer = async ({ user_id, title, author, book_state }) => {
     }
 };
 
-
-
-//createOffer original:
-// export const createOffer = async ({ user_id, title, author, book_state }) => {
-//     const response = await fetch(`${API_URL}/exchange`, {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify({
-//             user_id,
-//             type: 'oferta',  // Se asigna explícitamente el tipo "oferta"
-//             title,
-//             author,
-//             book_state,
-//         }),
-//     });
-
-//     if (!response.ok) {
-//         throw new Error('Error al crear la oferta');
-//     }
-
-//     return await response.json();
-// };
-
 export const createRequest = async ({ user_id, title, author, book_state }) => {
     try {
         console.log("Enviando solicitud con datos:", { user_id, type: 'solicitud', title, author, book_state });
@@ -107,7 +82,7 @@ export const createRequest = async ({ user_id, title, author, book_state }) => {
 export const getUserExchangeBooks = async (user_id) => {
     try {
         console.log(`Obteniendo ofertas y solicitudes del usuario ${user_id}...`);
-        
+
         if (!user_id) {
             console.error("⚠️ ERROR: `user_id` no tiene valor válido:", user_id);
             throw new Error("El user_id no puede ser undefined o null");
