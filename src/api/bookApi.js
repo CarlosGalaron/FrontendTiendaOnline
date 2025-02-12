@@ -126,7 +126,7 @@ export const getUserExchangeBooks = async (user_id) => {
  * @throws {Error} Si la respuesta no es un JSON válido o ocurre otro error.
  */
 export const getBooks = async () => {
-  const response = await fetch("http://localhost:4000/api/catalog", {
+  const response = await fetch("http://localhost:4000/api/books/catalog", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
