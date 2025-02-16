@@ -17,7 +17,7 @@ function ChatRoom() {
   const [mensajes, setMensajes] = useState([]);
 
   useEffect(() => {
-    const newSocket = io("http://localhost:3000");
+    const newSocket = io("http://localhost:4000");
     setSocket(newSocket);
 
     newSocket.on("connect", () => {
