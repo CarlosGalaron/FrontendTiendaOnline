@@ -1,0 +1,60 @@
+/* Pago.css */
+.payment-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .payment-container h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .payment-container p {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .payment-container div.field {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .payment-container label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  
+  .payment-container input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .payment-container button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  
+  .payment-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .payment-container .status-message {
+    text-align: center;
+    margin-top: 1rem;
+    color: green;
+  }
+  
