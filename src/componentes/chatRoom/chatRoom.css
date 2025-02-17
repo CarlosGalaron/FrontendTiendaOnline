@@ -6,42 +6,41 @@
     background-color: #F7F4F3;
     min-height: 100vh;
     padding: 20px;
-  }
-  
-  /* Estilo para el encabezado de usuario */
-  .App h3 {
+}
+
+/* Estilo para el encabezado de usuario */
+.App h3 {
     font-size: 20px;
     font-weight: bold;
     color: #5B2333;
     margin-bottom: 20px;
-  }
-  
-  /* Estilos para el contenedor de mensajes */
-  .mensajes-container {
+}
+
+/* Estilos para el contenedor de mensajes */
+.mensajes-container {
     min-height: 300px; /* Altura mínima */
     max-height: 500px; /* Altura máxima */
     width: 480px;
     overflow-y: auto; /* Agrega scroll vertical cuando los mensajes exceden el límite */
     padding: 10px;
-  
     border: 2px solid #5B2333;
     border-radius: 25px;
     margin-bottom: 20px;
     max-width: 480px; /* Ancho máximo */
-  }
-  
-  /* Estilos para la lista de mensajes */
-  .ul-mensajes {
+}
+
+/* Estilos para la lista de mensajes */
+.ul-mensajes {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 10px;
     padding: 0;
     margin: 0;
-  }
-  
-  /* Estilo para cada mensaje */
-  .li-mensaje {
+}
+
+/* Estilo para cada mensaje */
+.li-mensaje {
     background-color: white;
     border: 2px solid #5B2333;
     padding: 12px 15px;
@@ -51,18 +50,18 @@
     word-wrap: break-word;
     align-self: flex-start;
     font-size: 14px;
-  }
-  
-  /* Estilo para los mensajes propios */
-  .li-mensaje.own-message {
+}
+
+/* Estilo para los mensajes propios */
+.li-mensaje.own-message {
     background-color: #5B2333;
     color: white;
     border: 2px solid white;
     align-self: flex-end;
-  }
-  
-  /* Estilos para el contenedor de input y el botón */
-  .chat-input-container {
+}
+
+/* Estilos para el contenedor de input y el botón */
+.chat-input-container {
     display: flex;
     align-items: center;
     background: white;
@@ -72,10 +71,10 @@
     width: 480px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     border: 2px solid #5B2333;
-  }
-  
-  /* Estilo para el input */
-  .chat-input {
+}
+
+/* Estilo para el input */
+.chat-input {
     flex-grow: 1;
     border: none;
     padding: 10px;
@@ -83,12 +82,14 @@
     outline: none;
     background: transparent;
     font-size: 14px;
-  }
-  
-  /* Estilo para el botón de enviar */
-  .send-button {
+}
+
+/* Estilo para el botón de enviar */
+.send-button {
     background-color: #5B2333;
     border: none;
+    height: 40px;
+    width: 40px;
     color: white;
     padding: 8px 15px;
     border-radius: 10px;
@@ -96,25 +97,32 @@
     font-size: 16px;
     margin-left: 10px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Hover para el botón de enviar */
-  .send-button:hover {
+}
+
+/* Hover para el botón de enviar */
+.send-button:hover {
     background-color: #5c1529;
-  }
-  
-  
-  .emoji-button {
+}
+
+/* Estilo para el botón de emojis */
+.emoji-button {
     background-color: transparent;
     border: none;
     font-size: 24px;
     cursor: pointer;
-    margin-right: 10px;
-    padding: 5px;
-  }
-  
-  /* Emoji Selector */
-  .emoji-selector {
+}
+
+/* Estilo para el botón de archivo */
+.file-button {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+
+}
+
+/* Emoji Selector */
+.emoji-selector {
     position: absolute;
     bottom: 60px; /* Ajuste según sea necesario */
     left: 20px;
@@ -130,33 +138,56 @@
     max-width: 300px; /* Limitar el ancho máximo */
     max-height: 200px; /* Limitar la altura máxima */
     overflow: auto; /* Mostrar barra de desplazamiento si el contenido excede el tamaño */
-  }
-  
-  /* Emojis inside selector */
-  .emoji-selector span {
+}
+
+/* Emojis dentro del selector */
+.emoji-selector span {
     font-size: 24px;
     cursor: pointer;
     padding: 5px;
     transition: background-color 0.3s;
-  }
-  
-  .emoji-selector span:hover {
+}
+
+/* Efecto hover en los emojis */
+.emoji-selector span:hover {
     background-color: #e1f7ff;
-  }
-  /*scroolbar*/
-  ::-webkit-scrollbar {
+}
+
+/* Estilo para los enlaces de archivos */
+.archivo-enlace {
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+    padding: 5px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.archivo-enlace:hover {
+    background-color: #f7f4f3;
+    color: #5B2333;
+}
+
+/* Estilo para las imágenes enviadas */
+.archivo-imagen {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
     width: 5px; /* Ancho de la barra de desplazamiento */
-  }
-  
-  /* Personalizar el "thumb" (parte móvil de la barra de desplazamiento) */
-  ::-webkit-scrollbar-thumb {
+}
+
+/* Personalizar el "thumb" (parte móvil de la barra de desplazamiento) */
+::-webkit-scrollbar-thumb {
     background-color: #3981f7; /* Color del thumb */
     border-radius: 10px; /* Bordes redondeados */
     margin-right: 20px;
-  }
-  
-  ::-webkit-scrollbar-track {
+}
+
+::-webkit-scrollbar-track {
     border-radius: 10px; /* Bordes redondeados */
     margin: 20px;
-  }
-  
+}
