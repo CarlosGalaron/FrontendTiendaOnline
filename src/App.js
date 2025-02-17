@@ -13,6 +13,7 @@ import Catalogo from "./paginas/Catalogo/Catalogo.jsx";
 import ProtectedRoute from "./componentes/ProtectedRoutes";
 import IntercambioHome from "./paginas/IntercambioHome/IntercambioHome.jsx";
 
+
 function App() {
   return (
     <Router future={{ v7_relativeSplatPath: true }}>
@@ -69,6 +70,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        
       </Routes>
     </Router>
   );
