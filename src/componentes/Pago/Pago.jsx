@@ -19,6 +19,12 @@ function Pago({ totalCompra, totalBooks }) {
   };
 
   const pagar = async () => {
+    // Verificar que todos los campos tengan datos
+    if (!accountNumber || !cvc || !cardExpiry || !email || !deliveryAddress) {
+      alert('Por favor, rellene todos los datos.');
+      return;
+    }
+  
     // Preparamos el objeto de pago con el precio fijo de $10 por libro.
     const paymentData = {
       total_books: totalBooks,
@@ -29,19 +35,21 @@ function Pago({ totalCompra, totalBooks }) {
       email: email,
       delivery_address: deliveryAddress
     };
-
+  
     const data = await realizarPago(paymentData);
     if (data.payment) {
-      setStatus(`Pago simulado procesado, ID: ${data.payment.id}`);
+      setStatus(`Pago Ejecutado. Id: ${data.payment.id}`);
+      alert('Pago realizado con éxito');
       // Espera 2 segundos y redirige a la Tienda
       setTimeout(() => {
         handleLogoClick();
       }, 2000);
     } else {
       setStatus("Error al procesar el pago");
+      alert('Pago rechazado');
     }
   };
-
+  
   return (
     <div className="payment-container">
       <h2>Simulación de Pago</h2>
