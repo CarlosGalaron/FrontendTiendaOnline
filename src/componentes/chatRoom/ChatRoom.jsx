@@ -1,20 +1,28 @@
-import { io } from "socket.io-client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { UlMensajes, LiMensaje } from "./ui-components";
+import './chatRoom.css';
+import { io } from "socket.io-client";
+
+// Importar el JSON de emojis
+import emojisData from './data/emojis.json';
 
 function ChatRoom() {
   const { numRoom } = useParams();
   const navigate = useNavigate();
 
-  // Obtener usuario desde localStorage
   const user = JSON.parse(localStorage.getItem("user")) || { id: 1, name: "Invitado" };
-  const usuario = user.name; // Usamos el nombre en lugar del ID
+  const usuario = user.name;
 
   const [socket, setSocket] = useState(null);
   const [isConnected, setIsConnected] = useState(false);
   const [nuevoMensaje, setNuevoMensaje] = useState("");
   const [mensajes, setMensajes] = useState([]);
+  const [mostrarEmojis, setMostrarEmojis] = useState(false);
+
+  const mensajesContainerRef = useRef(null);
+
+  // Usar los emojis cargados desde el JSON
+  const emojis = emojisData.emojis;
 
   useEffect(() => {
     const newSocket = io("http://localhost:4000");
@@ -49,7 +57,7 @@ function ChatRoom() {
   }, [numRoom, usuario, navigate]);
 
   const enviarMensaje = () => {
-    if (socket && nuevoMensaje) {
+    if (socket && nuevoMensaje.trim() !== "") {
       socket.emit("chat_message", {
         usuario,
         texto: nuevoMensaje,
@@ -59,23 +67,69 @@ function ChatRoom() {
     }
   };
 
+  const manejarTeclaEnter = (e) => {
+    if (e.key === "Enter") {
+      enviarMensaje();
+    }
+  };
+
+  useEffect(() => {
+    if (mensajesContainerRef.current) {
+      mensajesContainerRef.current.scrollTop = mensajesContainerRef.current.scrollHeight;
+    }
+  }, [mensajes]);
+
+  const agregarEmoji = (emoji) => {
+    setNuevoMensaje((prev) => prev + emoji);
+    setMostrarEmojis(false);
+  };
+
   return (
     <div className="App">
-      <h2>{isConnected ? `Conectado a la sala ${numRoom}` : "No conectado"}</h2>
       <h3>Usuario: {usuario}</h3>
-      <UlMensajes>
-        {mensajes.map((mensaje, index) => (
-          <LiMensaje key={index} isOwnMessage={mensaje.usuario === usuario}>
-            {mensaje.usuario}: {mensaje.texto}
-          </LiMensaje>
-        ))}
-      </UlMensajes>
-      <input
-        type="text"
-        value={nuevoMensaje}
-        onChange={(e) => setNuevoMensaje(e.target.value)}
-      />
-      <button onClick={enviarMensaje}>Enviar</button>
+
+      <div className="mensajes-container" ref={mensajesContainerRef}>
+        <ul className="ul-mensajes">
+          {mensajes.map((mensaje, index) => (
+            <li key={index} className={`li-mensaje ${mensaje.usuario === usuario ? 'own-message' : ''}`}>
+              {mensaje.usuario}: {mensaje.texto}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="chat-input-container">
+        <button 
+          onClick={() => setMostrarEmojis(!mostrarEmojis)} 
+          className="emoji-button"
+        >
+          😀
+        </button>
+        <input
+          type="text"
+          value={nuevoMensaje}
+          onChange={(e) => setNuevoMensaje(e.target.value)}
+          onKeyDown={manejarTeclaEnter} 
+          placeholder="Escribe..."
+          className="chat-input"
+        />
+
+        {mostrarEmojis && (
+          <div className="emoji-selector">
+            {emojis.map((emoji, index) => (
+              <span 
+                key={index} 
+                className="emoji" 
+                onClick={() => agregarEmoji(emoji.emoji)} // Usamos emoji.emoji
+              >
+                {emoji.emoji}
+              </span>
+            ))}
+          </div>
+        )}
+
+        <button onClick={enviarMensaje} className="send-button">➤</button>
+      </div>
     </div>
   );
 }
