@@ -14,6 +14,7 @@ import ProtectedRoute from "./componentes/ProtectedRoutes";
 import IntercambioHome from "./paginas/IntercambioHome/IntercambioHome.jsx";
 import ChatRoom from "./componentes/chatRoom/ChatRoom.jsx";
 
+
 function App() {
   return (
     <Router future={{ v7_relativeSplatPath: true }}>
@@ -70,7 +71,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-
         <Route path="/chatRoom/:numRoom" element={<ChatRoom />} />
       </Routes>
     </Router>

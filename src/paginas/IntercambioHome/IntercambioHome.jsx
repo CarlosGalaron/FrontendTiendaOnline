@@ -55,41 +55,55 @@ function IntercambioHome() {
     const { name, value } = event.target;
     setStateFunction((prevData) => ({ ...prevData, [name]: value }));
   };
-
   const handleCreateOffer = async (e) => {
     e.preventDefault();
     if (!userId) {
-      alert('Debes iniciar sesión para crear una oferta.');
+      alert("Debes iniciar sesión para crear una oferta.");
       return;
     }
-
+  
     try {
-      await createOffer({ ...offerData, user_id: userId });
-      alert('Oferta creada con éxito');
-      setOfferData({ title: '', author: '', book_state: '' });
+      const newOffer = { ...offerData, user_id: userId };
+      const response = await createOffer(newOffer);
+      alert("Oferta creada con éxito");
+  
+      // Si el backend devuelve un match, mostrar alerta
+      if (response.matchId) {
+        alert(`¡Se ha encontrado un match con el usuario ${response.matchedUserId}!`);
+      }
+  
+      setOfferData({ title: "", author: "", book_state: "" });
     } catch (error) {
-      console.error('Error al crear oferta:', error);
-      alert('No se pudo crear la oferta.');
+      console.error("Error al crear oferta:", error);
+      alert("No se pudo crear la oferta.");
     }
   };
-
+  
   const handleCreateRequest = async (e) => {
     e.preventDefault();
     if (!userId) {
-      alert('Debes iniciar sesión para crear una solicitud.');
+      alert("Debes iniciar sesión para crear una solicitud.");
       return;
     }
-
+  
     try {
-      await createRequest({ ...requestData, user_id: userId });
-      alert('Solicitud creada con éxito');
-      setRequestData({ title: '', author: '', book_state: '' });
+      const newRequest = { ...requestData, user_id: userId };
+      const response = await createRequest(newRequest);
+      alert("Solicitud creada con éxito");
+  
+      // Si el backend devuelve un match, mostrar alerta
+      // imagino que aqui ira la creacion de la room de chat cuando se encuentre un match
+      if (response.matchId) {
+        alert(`¡Se ha encontrado un match con el usuario ${response.matchedUserId}!`);
+      }
+  
+      setRequestData({ title: "", author: "", book_state: "" });
     } catch (error) {
-      console.error('Error al crear solicitud:', error);
-      alert('No se pudo crear la solicitud.');
+      console.error("Error al crear solicitud:", error);
+      alert("No se pudo crear la solicitud.");
     }
   };
-
+  
   const renderContent = () => {
     switch (selectedOption) {
       case 'chats':

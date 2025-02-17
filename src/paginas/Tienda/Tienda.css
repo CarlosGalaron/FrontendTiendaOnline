@@ -19,3 +19,20 @@
     padding-top: 4rem;
     background-color: white;
 }
+/* Estilo para el botón de Proceder al Pago */
+.total-compra button {
+    padding: 0.75rem 1.5rem;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .total-compra button:hover {
+    background-color: #0056b3;
+  }
+  

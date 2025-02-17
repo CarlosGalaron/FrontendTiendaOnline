@@ -2,7 +2,7 @@
 
 // const API_URL = 'http://localhost:4000/api/books'; --> sustituir en los fetch
 
-// createOffer de prueba para debugear:
+// createOffer
 export const createOffer = async ({ user_id, title, author, book_state }) => {
   const offerData = {
     user_id,
@@ -45,6 +45,7 @@ export const createOffer = async ({ user_id, title, author, book_state }) => {
   }
 };
 
+// createRequest
 export const createRequest = async ({ user_id, title, author, book_state }) => {
   try {
     console.log("Enviando solicitud con datos:", {
