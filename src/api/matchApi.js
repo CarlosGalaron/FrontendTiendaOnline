@@ -11,19 +11,24 @@ export const getUserMatches = async (userId) => {
   }
 };
 
-export const updateMatchState = async (matchId, match_state) => {
-  try {
-    const response = await fetch(`${API_URL}/${matchId}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ match_state }),
-    });
-    if (!response.ok) throw new Error("Error al actualizar match");
-    return await response.json();
-  } catch (error) {
-    console.error(error);
-    return null;
+const updateMatchState = async (matchId, userId, matchState) => {
+  const response = await fetch(`/api/matches/${matchId}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ userId, match_state: matchState }),
+  });
+
+  if (!response.ok) {
+    throw new Error("Error actualizando el estado del match");
   }
+
+  return await response.json();
+};
+
+export default {
+  updateMatchState,
 };
 
 export const deleteMatch = async (matchId) => {
@@ -36,3 +41,4 @@ export const deleteMatch = async (matchId) => {
     return null;
   }
 };
+

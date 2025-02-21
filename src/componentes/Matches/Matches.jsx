@@ -1,56 +1,60 @@
 import React from "react";
-import { updateMatchState, deleteMatch } from "../../api/matchApi";
-import "./Matches.css";
+import matchApi from "../../api/matchApi";
 
-const Matches = ({ match, setMatches }) => {
-  const handleMatchStateChange = async (newState) => {
-    await updateMatchState(match.id, newState);
-    setMatches((prevMatches) =>
-      prevMatches.map((m) => (m.id === match.id ? { ...m, match_state: newState } : m))
-    );
+const MatchCard = ({ match, userId, onMatchUpdated }) => {
+  const handleAccept = async () => {
+    try {
+      await matchApi.updateMatchState(match.id, userId, true); // Aceptar el match
+      onMatchUpdated(); // Recargar la lista de matches
+    } catch (error) {
+      console.error("Error al aceptar el match:", error);
+    }
   };
 
-  const handleDeleteMatch = async () => {
-    await deleteMatch(match.id);
-    setMatches((prevMatches) => prevMatches.filter((m) => m.id !== match.id));
+  const handleReject = async () => {
+    try {
+      await matchApi.updateMatchState(match.id, userId, false); // Rechazar el match
+      onMatchUpdated(); // Recargar la lista de matches
+    } catch (error) {
+      console.error("Error al rechazar el match:", error);
+    }
   };
 
   return (
-    <div className="match-card">
-      <h3>📚 Intercambio de Libros</h3>
-      
-      <div className="book-details">
-        <div className="book">
-          <h4>Tu Libro</h4>
-          <p><strong>Título:</strong> {match.book1?.title}</p>
-          <p><strong>Autor:</strong> {match.book1?.author}</p>
-          <p><strong>Estado:</strong> {match.book1?.book_state}</p>
-          <p><em>📖 {match.book1?.type === "oferta" ? "Ofertado" : "Solicitado"} por {match.book1?.User?.name}</em></p>
+    <div className="border rounded-lg p-4 shadow-md bg-white">
+      <h3 className="text-lg font-semibold mb-2">Intercambio con usuario {match.id_user2}</h3>
+
+      <div className="grid grid-cols-2 gap-4">
+        {/* Mi intercambio */}
+        <div className="p-2 bg-gray-100 rounded">
+          <h4 className="font-bold">Mi Oferta</h4>
+          <p>{match.myOffer?.title} - {match.myOffer?.author}</p>
+
+          <h4 className="font-bold mt-2">Mi Solicitud</h4>
+          <p>{match.myRequest?.title} - {match.myRequest?.author}</p>
         </div>
-        
-        <div className="book">
-          <h4>Libro del Otro Usuario</h4>
-          <p><strong>Título:</strong> {match.book2?.title}</p>
-          <p><strong>Autor:</strong> {match.book2?.author}</p>
-          <p><strong>Estado:</strong> {match.book2?.book_state}</p>
-          <p><em>📖 {match.book2?.type === "oferta" ? "Ofertado" : "Solicitado"} por {match.book2?.User?.name}</em></p>
+
+        {/* Oferta del otro usuario */}
+        <div className="p-2 bg-gray-100 rounded">
+          <h4 className="font-bold">Oferta del Otro Usuario</h4>
+          <p>{match.otherOffer?.title} - {match.otherOffer?.author}</p>
+
+          <h4 className="font-bold mt-2">Su Solicitud</h4>
+          <p>{match.otherRequest?.title} - {match.otherRequest?.author}</p>
         </div>
       </div>
 
-      <p className="match-status">
-        <strong>Estado:</strong> 
-        <span className={match.match_state === true ? "accepted" : match.match_state === false ? "rejected" : "pending"}>
-          {match.match_state === true ? "✅ Aceptado" : match.match_state === false ? "❌ Rechazado" : "⏳ Pendiente"}
-        </span>
-      </p>
-
-      <div className="match-actions">
-        <button className="accept" onClick={() => handleMatchStateChange(true)}>✅ Aceptar</button>
-        <button className="reject" onClick={() => handleMatchStateChange(false)}>❌ Rechazar</button>
-        <button className="delete" onClick={handleDeleteMatch}>🗑️ Eliminar</button>
+      {/* Botones para aceptar o rechazar */}
+      <div className="mt-4 flex justify-end gap-2">
+        <button className="px-4 py-2 bg-green-500 text-white rounded" onClick={handleAccept}>
+          Aceptar
+        </button>
+        <button className="px-4 py-2 bg-red-500 text-white rounded" onClick={handleReject}>
+          Rechazar
+        </button>
       </div>
     </div>
   );
 };
 
-export default Matches;
+export default MatchCard;
