@@ -1,101 +1,44 @@
+/* Estilos para la tarjeta de match */
 .match-card {
-  background: #ffffff;
+  border: 1px solid #ccc;
   border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   padding: 16px;
-  margin: 10px 0;
-  transition: transform 0.2s ease-in-out;
+  margin: 16px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
 }
 
-.match-card:hover {
-  transform: scale(1.02);
+/* Estilos para los detalles del match */
+.match-details {
+  margin-bottom: 16px;
 }
 
-h3 {
+.match-details h3 {
+  margin-top: 0;
   color: #333;
-  text-align: center;
 }
 
-.book-details {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-}
-
-.book {
-  width: 48%;
-  padding: 10px;
-  background: #f8f8f8;
-  border-radius: 6px;
-}
-
-.book h4 {
-  text-align: center;
+.match-details p {
+  margin: 8px 0;
   color: #555;
 }
 
-p {
-  margin: 5px 0;
-  color: #444;
-}
-
-.match-status {
-  text-align: center;
-  font-size: 1.1em;
-  margin: 10px 0;
-}
-
-.match-status .accepted {
-  color: green;
-}
-
-.match-status .rejected {
-  color: red;
-}
-
-.match-status .pending {
-  color: orange;
-}
-
-.match-actions {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 15px;
-}
-
-.match-actions button {
-  padding: 8px 12px;
-  font-size: 1em;
+/* Estilos para el botón "ACEPTAR MATCH" */
+.aceptar-match-btn {
+  background-color: #4CAF50; /* Verde */
+  color: white;
   border: none;
   border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
   cursor: pointer;
-  transition: background 0.2s ease-in-out;
+  transition: background-color 0.3s ease;
 }
 
-.match-actions .accept {
-  background: #4caf50;
-  color: white;
+.aceptar-match-btn:hover {
+  background-color: #45a049; /* Verde más oscuro al pasar el mouse */
 }
 
-.match-actions .accept:hover {
-  background: #45a049;
-}
-
-.match-actions .reject {
-  background: #f44336;
-  color: white;
-}
-
-.match-actions .reject:hover {
-  background: #e53935;
-}
-
-.match-actions .delete {
-  background: #777;
-  color: white;
-}
-
-.match-actions .delete:hover {
-  background: #666;
+.aceptar-match-btn:active {
+  background-color: #3d8b40; /* Verde aún más oscuro al hacer clic */
 }
