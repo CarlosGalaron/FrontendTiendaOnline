@@ -25,6 +25,7 @@ function Header() {
 
   const handleLogout = () => {
     localStorage.removeItem('authToken'); // Eliminar el token del almacenamiento
+    localStorage.removeItem('user'); // Eliminar el usuario del almacenamiento
     setIsLoggedIn(false);
     navigate('/login');
   };

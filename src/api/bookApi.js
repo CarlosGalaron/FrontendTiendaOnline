@@ -16,7 +16,7 @@ export const createOffer = async ({ user_id, title, author, book_state }) => {
 
   try {
     const response = await fetch(
-      "http://localhost:4000/api/books/register-exchange",
+      "http://localhost:4000/api/books/exchange",
       {
         method: "POST",
         headers: {
@@ -57,7 +57,7 @@ export const createRequest = async ({ user_id, title, author, book_state }) => {
     });
 
     const response = await fetch(
-      "http://localhost:4000/api/books/register-exchange",
+      "http://localhost:4000/api/books/exchange",
       {
         method: "POST",
         headers: {

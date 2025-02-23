@@ -13,7 +13,6 @@ import Catalogo from "./paginas/Catalogo/Catalogo.jsx";
 import ProtectedRoute from "./componentes/ProtectedRoutes";
 import IntercambioHome from "./paginas/IntercambioHome/IntercambioHome.jsx";
 import ChatRoom from "./componentes/chatRoom/ChatRoom.jsx";
-import ChatList from "./paginas/ChatList/ChatList.jsx";
 
 
 function App() {
@@ -30,6 +29,7 @@ function App() {
         {/* <Route path="/biblioteca" element={<LibrosIntercambio />} /> */}
         {/* <Route path="/intercambio/:ISBN/:tipo" element={<Intercambio />} /> */}
         <Route path="/IntercambioHome" element={<IntercambioHome />} />
+        <Route path="/MisMatches" element={<MisMatches />} />
 
         {/* para rutas protegidas */}
         <Route
