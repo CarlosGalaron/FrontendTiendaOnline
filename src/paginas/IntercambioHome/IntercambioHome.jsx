@@ -3,11 +3,16 @@ import React, { useState, useEffect } from 'react';
 import './IntercambioHome.css';
 import Header from '../../componentes/Header/Header';
 import FooterHomepage from '../../componentes/Footer/Footer';
+
+import Ofertas from '../../componentes/Ofertas/Ofertas';
+import Solicitudes from '../../componentes/Solicitudes/Solicitudes';
+import { createOffer, createRequest, getUserExchangeBooks } from '../../api/bookApi'; // Importamos la API
+import ChatList from '../../componentes/ChatList/ChatList';
+import MisMatches from '../../componentes/misMatches/MisMatches';
 import Chats from '../../componentes/IntercambioHomeComponents/Chats';
 import MisBusquedas from '../../componentes/IntercambioHomeComponents/MisBusquedas';
 import OfertasForm from '../../componentes/IntercambioHomeComponents/OfertasForm';
 import SolicitudesForm from '../../componentes/IntercambioHomeComponents/SolicitudesForm';
-import { createOffer, createRequest, getUserExchangeBooks } from '../../api/bookApi';
 
 function IntercambioHome() {
 
@@ -107,7 +112,11 @@ function IntercambioHome() {
   const renderContent = () => {
     switch (selectedOption) {
       case 'chats':
-        return <Chats />;
+        return (
+          <div className='Intercambio-chat-body'>
+            <ChatList/>
+          </div>
+        );
       case 'mis-busquedas':
         return (
           <MisBusquedas 
@@ -132,6 +141,43 @@ function IntercambioHome() {
         );
       case 'solicitudes':
         return (
+
+          <div className='Intercambio-form-body'>
+            <form className='form-solicitud' onSubmit={handleCreateRequest}>
+              <label>Título</label>
+              <input
+                type="text"
+                name="title"
+                placeholder="Don Quijote de la Mancha"
+                value={requestData.title}
+                onChange={(e) => handleInputChange(e, setRequestData)}
+              />
+              <label>Autor</label>
+              <input
+                type="text"
+                name="author"
+                placeholder="Miguel de Cervantes"
+                value={requestData.author}
+                onChange={(e) => handleInputChange(e, setRequestData)}
+              />
+              <label>Estado del libro</label>
+              <input
+                type="text"
+                name="book_state"
+                placeholder="Nuevo/Seminuevo/Deteriorado"
+                value={requestData.book_state}
+                onChange={(e) => handleInputChange(e, setRequestData)}
+              />
+              <button className='form-button' type="submit">Crear solicitud</button>
+            </form>
+          </div>
+          
+        );
+        case 'matches':
+        return (
+          <div className='Intercambio-matches-body'>
+            <MisMatches/>
+          </div>
           <SolicitudesForm 
             requestData={requestData} 
             handleInputChange={handleInputChange} 
@@ -151,6 +197,7 @@ function IntercambioHome() {
         <button onClick={() => handleOptionChange('mis-busquedas')}>MIS BÚSQUEDAS</button>
         <button onClick={() => handleOptionChange('ofertas')}>OFERTAS</button>
         <button onClick={() => handleOptionChange('solicitudes')}>SOLICITUDES</button>
+        <button onClick={() => handleOptionChange('matches')}>MIS MATCHES</button>
       </nav>
       <div className='IntercambioHome-content'>{renderContent()}</div>
       <FooterHomepage />

@@ -25,6 +25,7 @@ function Header() {
 
   const handleLogout = () => {
     localStorage.removeItem('authToken'); // Eliminar el token del almacenamiento
+    localStorage.removeItem('user'); // Eliminar el usuario del almacenamiento
     setIsLoggedIn(false);
     navigate('/login');
   };
@@ -51,7 +52,7 @@ function Header() {
         <>
           <button className="header-button" onClick={() => navigate('/catalogo')}>Tienda</button>
           <button className="header-button" onClick={() => navigate('/seleccion')}>Selección de libros</button>
-          <button className="header-button" onClick={() => navigate('/biblioteca')}>Usuario</button>
+          <button className="header-button" onClick={() => navigate('/IntercambioHome')}>Usuario</button>
           <button className="header-button" onClick={() => navigate('/tienda')}>Cesta</button>
           <button className="header-button logout-button" onClick={handleLogout}>LOG OUT</button>
         </>
