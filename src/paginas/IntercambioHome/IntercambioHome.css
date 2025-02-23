@@ -1,117 +1,34 @@
+/* IntercambioHome.css */
 .IntercambioHome-father {
-    width: 100vw;
-    height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-}
-
-/* NAV como header */
-.IntercambioHome-nav {
-    width: 100%;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    background-color: black;
-}
-
-.IntercambioHome-nav-button {
-    font-size: 18px;
-    color: white;
-    padding: 10px 20px;
-    background-color: black;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.IntercambioHome-nav-button:hover {
-    font-size: 20px;
-    font-weight: bold;
-    cursor: grab;
-}
-
-/* Contenido principal */
-.IntercambioHome-content {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 20px;
-    background-image: url('../../assets/images/FondoIntercambio.png');
-    background-size: cover;
-    background-position: bottom;
-}
-
-/* Sección de búsqueda */
-.Intercambio-busqueda-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    width: 80%;
-}
-
-.busqueda-toggle-button {
-    padding: 10px 20px;
-    background-color: burlywood;
-    border: 2px solid saddlebrown;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.busqueda-list-container {
-    width: 100%;
-    padding: 16px;
-    background-color: wheat;
-    border: 4px solid burlywood;
-    min-height: 400px;
-    max-height: 500px;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: burlywood transparent;
-}
-
-.busqueda-list-container::-webkit-scrollbar {
-    width: 8px;
-}
-
-.busqueda-list-container::-webkit-scrollbar-thumb {
-    background: burlywood;
-    border-radius: 4px;
-}
-
-/* Formularios de ofertas y solicitudes */
-.Intercambio-form-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.form-oferta, .form-solicitud {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 20px;
-    background: white;
-    border: 2px solid burlywood;
-    width: 300px;
-}
-
-.form-button {
+    min-height: 100vh;
+    background-color: #f5f5f5;
+  }
+  
+  .IntercambioHome-nav {
+    background-color: #007bff;
     padding: 10px;
-    background-color: burlywood;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .IntercambioHome-nav button {
+    background: white;
     border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
-}
-
-.form-button:hover {
-    background-color: saddlebrown;
-    color: white;
-}
+    transition: background-color 0.3s;
+  }
+  
+  .IntercambioHome-nav button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .IntercambioHome-content {
+    flex: 1;
+    padding: 20px;
+  }
+  

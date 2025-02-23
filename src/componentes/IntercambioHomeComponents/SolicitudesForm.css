@@ -1,0 +1,32 @@
+/* SolicitudesForm.css */
+.solicitudes-form-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .form-solicitud {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .form-solicitud input,
+  .form-solicitud select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .form-button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  

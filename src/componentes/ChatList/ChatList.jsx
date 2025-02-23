@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { io } from "socket.io-client";
-import ChatRoom from "../../componentes/chatRoom/ChatRoom";
+import ChatRoom from "../chatRoom/ChatRoom";
+import "./chatList.css";
 
 function ChatList() {
   const [chats, setChats] = useState([]);
@@ -8,7 +9,6 @@ function ChatList() {
   const [usuario, setUsuario] = useState(null);
   const [socket, setSocket] = useState(null);
 
-  // Obtener el usuario desde localStorage
   useEffect(() => {
     const usuarioLS = localStorage.getItem("user");
     if (usuarioLS) {
@@ -18,18 +18,15 @@ function ChatList() {
     }
   }, []);
 
-  // Configurar el socket cuando el usuario esté definido
   useEffect(() => {
     if (!usuario) return;
 
-    // Conecta al servidor de sockets en el puerto 4000 (igual que en ChatRoom)
     const socketInstance = io("http://localhost:4000");
     setSocket(socketInstance);
 
     socketInstance.on("connect", () => {
       console.log("Conectado al servidor de sockets:", socketInstance.id);
       console.log("Usuario:", usuario);
-      // Emitir el evento para obtener los chats del usuario
       socketInstance.emit("get_user_chats", usuario.id);
     });
 
@@ -43,7 +40,6 @@ function ChatList() {
       alert(errorMessage);
     });
 
-    // Desconectar al desmontar
     return () => {
       socketInstance.disconnect();
     };
@@ -54,25 +50,20 @@ function ChatList() {
   };
 
   return (
-    <div style={{ display: "flex", height: "100vh" }}>
-      <div style={{ width: "30%", borderRight: "1px solid #ccc", padding: "1rem" }}>
+    <div className="chat-container">
+      <div className="chat-list">
         <h3>Mis Chats</h3>
-        <ul style={{ listStyle: "none", padding: 0 }}>
+        <ul>
           {chats.length > 0 ? (
             chats.map((chat) => (
               <li
                 key={chat.numRoom}
                 onClick={() => manejarClickChat(chat)}
-                style={{
-                  padding: "0.5rem",
-                  marginBottom: "0.5rem",
-                  backgroundColor:
-                    chatSeleccionado && chatSeleccionado.numRoom === chat.numRoom
-                      ? "#f0f0f0"
-                      : "#fff",
-                  cursor: "pointer",
-                  borderRadius: "4px",
-                }}
+                className={`chat-item ${
+                  chatSeleccionado && chatSeleccionado.numRoom === chat.numRoom
+                    ? "selected"
+                    : ""
+                }`}
               >
                 {chat.numRoom}
               </li>
@@ -83,7 +74,7 @@ function ChatList() {
         </ul>
       </div>
 
-      <div style={{ width: "70%", padding: "1rem" }}>
+      <div className="chat-content">
         {chatSeleccionado ? (
           <ChatRoom numRoom={chatSeleccionado.numRoom} />
         ) : (

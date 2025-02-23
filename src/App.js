@@ -13,7 +13,8 @@ import Catalogo from "./paginas/Catalogo/Catalogo.jsx";
 import ProtectedRoute from "./componentes/ProtectedRoutes";
 import IntercambioHome from "./paginas/IntercambioHome/IntercambioHome.jsx";
 import ChatRoom from "./componentes/chatRoom/ChatRoom.jsx";
-
+import ChatList from "./componentes/ChatList/ChatList.jsx";
+import MisMatches from "./componentes/misMatches/MisMatches.jsx";
 
 function App() {
   return (

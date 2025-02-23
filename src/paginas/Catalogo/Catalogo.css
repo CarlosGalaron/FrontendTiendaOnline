@@ -234,3 +234,44 @@ h1 {
 .toggle-cart-button:hover {
     background-color: #007BFF;
 }
+/* Estilos para el contenedor de búsqueda */
+.search-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+  }
+  
+  /* Estilos para el dropdown de selección */
+  .search-container select {
+    padding: 8px 10px;
+    font-size: 1rem;
+    border: 1px solid greenyellow;
+    border-radius: 4px;
+    background-color: burlywood;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .search-container select:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Estilos para el input de búsqueda */
+  .search-container .search-input {
+    padding: 8px 10px;
+    font-size: 1rem;
+    border: 1px solid blue;
+    border-radius: 4px;
+    width: 250px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .search-container .search-input:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  

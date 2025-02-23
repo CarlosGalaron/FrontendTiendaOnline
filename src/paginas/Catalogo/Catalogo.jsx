@@ -10,8 +10,10 @@ function Catalogo() {
   const [selectedBook, setSelectedBook] = useState(null);
   const [cartBooks, setCartBooks] = useState([]);
   const [isCartVisible, setIsCartVisible] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchField, setSearchField] = useState("title"); // "title", "author" o "genre"
 
-  // Se obtiene el listado de libros del catálogo desde el backend usando bookApi.js
+  // Obtiene el listado de libros del catálogo desde el backend
   useEffect(() => {
     const fetchBooks = async () => {
       try {
@@ -58,10 +60,23 @@ function Catalogo() {
     setIsCartVisible(!isCartVisible);
   };
 
-  // Organiza los libros en filas de 8 elementos (ajusta según sea necesario)
+  // Filtra los libros según el término de búsqueda y el campo seleccionado
+  const filteredBooks = books.filter((book) => {
+    const search = searchTerm.toLowerCase();
+    if (searchField === "title") {
+      return book.title.toLowerCase().includes(search);
+    } else if (searchField === "author") {
+      return book.author.toLowerCase().includes(search);
+    } else if (searchField === "genre") {
+      return book.genre && book.genre.toLowerCase().includes(search);
+    }
+    return true;
+  });
+
+  // Organiza los libros filtrados en filas de 8 elementos
   const rows = [];
-  for (let i = 0; i < books.length; i += 8) {
-    rows.push(books.slice(i, i + 8));
+  for (let i = 0; i < filteredBooks.length; i += 8) {
+    rows.push(filteredBooks.slice(i, i + 8));
   }
 
   return (
@@ -86,6 +101,23 @@ function Catalogo() {
           <button className="toggle-cart-button" onClick={toggleCartVisibility}>
             {isCartVisible ? "Ocultar Cesta" : "Mostrar Cesta"}
           </button>
+          <div className="search-container">
+            <select
+              value={searchField}
+              onChange={(e) => setSearchField(e.target.value)}
+            >
+              <option value="title">Título</option>
+              <option value="author">Autor</option>
+              <option value="genre">Género</option>
+            </select>
+            <input
+              type="text"
+              className="search-input"
+              placeholder={`Buscar por ${searchField === "title" ? "título" : searchField === "author" ? "autor" : "género"}...`}
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
         </div>
         {isLoading ? (
           <p>Cargando libros...</p>
