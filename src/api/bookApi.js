@@ -1,5 +1,6 @@
 // src/api/bookApi.js
 
+
 // const API_URL = 'http://localhost:4000/api/books'; --> sustituir en los fetch
 
 // createOffer
@@ -143,4 +144,30 @@ export const getBooks = async () => {
   } catch (error) {
     throw new Error("Respuesta no es un JSON válido");
   }
+};
+export const deleteOffer = async (offerId) => {
+  const response = await fetch(`http://localhost:4000/api/offers/${offerId}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if (!response.ok) {
+    throw new Error("Error al eliminar la oferta");
+  }
+  return response.json();
+};
+
+export const updateOffer = async (offer) => {
+  const response = await fetch(`http://localhost:4000/api/offers/${offer.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(offer),
+  });
+  if (!response.ok) {
+    throw new Error("Error al actualizar la oferta");
+  }
+  return response.json();
 };

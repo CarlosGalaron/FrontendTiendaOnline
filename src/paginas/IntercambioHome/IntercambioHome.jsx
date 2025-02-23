@@ -1,31 +1,32 @@
+// src/paginas/IntercambioHome/IntercambioHome.jsx
 import React, { useState, useEffect } from 'react';
 import './IntercambioHome.css';
 import Header from '../../componentes/Header/Header';
 import FooterHomepage from '../../componentes/Footer/Footer';
+
 import Ofertas from '../../componentes/Ofertas/Ofertas';
 import Solicitudes from '../../componentes/Solicitudes/Solicitudes';
 import { createOffer, createRequest, getUserExchangeBooks } from '../../api/bookApi'; // Importamos la API
 import ChatList from '../../componentes/ChatList/ChatList';
 import MisMatches from '../../componentes/misMatches/MisMatches';
+import Chats from '../../componentes/IntercambioHomeComponents/Chats';
+import MisBusquedas from '../../componentes/IntercambioHomeComponents/MisBusquedas';
+import OfertasForm from '../../componentes/IntercambioHomeComponents/OfertasForm';
+import SolicitudesForm from '../../componentes/IntercambioHomeComponents/SolicitudesForm';
 
 function IntercambioHome() {
+
   const [selectedOption, setSelectedOption] = useState('chats');
   const [mostrarOfertas, setMostrarOfertas] = useState(true);
-
-  // Estados para almacenar las ofertas y solicitudes
   const [ofertas, setOfertas] = useState([]);
   const [solicitudes, setSolicitudes] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  // Estados para capturar datos del formulario
   const [offerData, setOfferData] = useState({ title: '', author: '', book_state: '' });
   const [requestData, setRequestData] = useState({ title: '', author: '', book_state: '' });
 
-  // Obtener el ID del usuario autenticado desde localStorage
+
   const storedUser = JSON.parse(localStorage.getItem('user'));
-  console.log("Usuario en localStorage:", storedUser);
-  const userId = storedUser?.id; // Asegurar que se usa el campo correcto
-  console.log("ID del usuario obtenido:", userId);
+  const userId = storedUser?.id;
 
   useEffect(() => {
     if (!userId) return;
@@ -53,10 +54,15 @@ function IntercambioHome() {
     setMostrarOfertas(!mostrarOfertas);
   };
 
-  const handleInputChange = (event, setStateFunction) => {
+  const handleInputChange = (event, type) => {
     const { name, value } = event.target;
-    setStateFunction((prevData) => ({ ...prevData, [name]: value }));
+    if (type === "offer") {
+      setOfferData((prevData) => ({ ...prevData, [name]: value }));
+    } else if (type === "request") {
+      setRequestData((prevData) => ({ ...prevData, [name]: value }));
+    }
   };
+
   const handleCreateOffer = async (e) => {
     e.preventDefault();
     if (!userId) {
@@ -69,7 +75,6 @@ function IntercambioHome() {
       const response = await createOffer(newOffer);
       alert("Oferta creada con éxito");
   
-      // Si el backend devuelve un match, mostrar alerta
       if (response.matchId) {
         alert(`¡Se ha encontrado un match con el usuario ${response.matchedUserId}!`);
       }
@@ -93,8 +98,6 @@ function IntercambioHome() {
       const response = await createRequest(newRequest);
       alert("Solicitud creada con éxito");
   
-      // Si el backend devuelve un match, mostrar alerta
-      // imagino que aqui ira la creacion de la room de chat cuando se encuentre un match
       if (response.matchId) {
         alert(`¡Se ha encontrado un match con el usuario ${response.matchedUserId}!`);
       }
@@ -105,7 +108,7 @@ function IntercambioHome() {
       alert("No se pudo crear la solicitud.");
     }
   };
-  
+
   const renderContent = () => {
     switch (selectedOption) {
       case 'chats':
@@ -116,55 +119,29 @@ function IntercambioHome() {
         );
       case 'mis-busquedas':
         return (
-          <div className='Intercambio-busqueda-body'>
-            <button className='busqueda-toggle-button' onClick={toggleBusqueda}>
-              {mostrarOfertas ? 'Ver Solicitudes' : 'Ver Ofertas'}
-            </button>
-            <div className='busqueda-list-container'>
-              {loading ? (
-                <p>Cargando...</p>
-              ) : mostrarOfertas ? (
-                <Ofertas ofertas={ofertas} />
-              ) : (
-                <Solicitudes solicitudes={solicitudes} />
-              )}
-            </div>
-          </div>
+          <MisBusquedas 
+  mostrarOfertas={mostrarOfertas} 
+  toggleBusqueda={toggleBusqueda} 
+  loading={loading} 
+  ofertas={ofertas} 
+  solicitudes={solicitudes}
+  setOfertas={setOfertas}
+  setSolicitudes={setSolicitudes} 
+/>
+
+        
         );
       case 'ofertas':
         return (
-          <div className='Intercambio-form-body'>
-            <form className='form-oferta' onSubmit={handleCreateOffer}>
-              <label>Título</label>
-              <input
-                type="text"
-                name="title"
-                placeholder="Don Quijote de la Mancha"
-                value={offerData.title}
-                onChange={(e) => handleInputChange(e, setOfferData)}
-              />
-              <label>Autor</label>
-              <input
-                type="text"
-                name="author"
-                placeholder="Miguel de Cervantes"
-                value={offerData.author}
-                onChange={(e) => handleInputChange(e, setOfferData)}
-              />
-              <label>Estado del libro</label>
-              <input
-                type="text"
-                name="book_state"
-                placeholder="Nuevo/Seminuevo/Deteriorado"
-                value={offerData.book_state}
-                onChange={(e) => handleInputChange(e, setOfferData)}
-              />
-              <button className='form-button' type="submit">Crear oferta</button>
-            </form>
-          </div>
+          <OfertasForm 
+            offerData={offerData} 
+            handleInputChange={handleInputChange} 
+            handleCreateOffer={handleCreateOffer} 
+          />
         );
       case 'solicitudes':
         return (
+
           <div className='Intercambio-form-body'>
             <form className='form-solicitud' onSubmit={handleCreateRequest}>
               <label>Título</label>
@@ -201,6 +178,11 @@ function IntercambioHome() {
           <div className='Intercambio-matches-body'>
             <MisMatches/>
           </div>
+          <SolicitudesForm 
+            requestData={requestData} 
+            handleInputChange={handleInputChange} 
+            handleCreateRequest={handleCreateRequest} 
+          />
         );
       default:
         return <div className='IntercambioHome-content'></div>;
