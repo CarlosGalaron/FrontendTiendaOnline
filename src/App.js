@@ -13,6 +13,7 @@ import Catalogo from "./paginas/Catalogo/Catalogo.jsx";
 import ProtectedRoute from "./componentes/ProtectedRoutes";
 import IntercambioHome from "./paginas/IntercambioHome/IntercambioHome.jsx";
 import ChatRoom from "./componentes/chatRoom/ChatRoom.jsx";
+import ChatList from "./paginas/ChatList/ChatList.jsx";
 
 
 function App() {
@@ -72,6 +73,7 @@ function App() {
           }
         />
         <Route path="/chatRoom/:numRoom" element={<ChatRoom />} />
+        <Route path="/chatList" element={<ChatList />} />
       </Routes>
     </Router>
   );
