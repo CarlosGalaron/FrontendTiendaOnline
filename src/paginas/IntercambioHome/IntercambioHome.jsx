@@ -5,6 +5,8 @@ import FooterHomepage from '../../componentes/Footer/Footer';
 import Ofertas from '../../componentes/Ofertas/Ofertas';
 import Solicitudes from '../../componentes/Solicitudes/Solicitudes';
 import { createOffer, createRequest, getUserExchangeBooks } from '../../api/bookApi'; // Importamos la API
+import ChatList from '../../componentes/ChatList/ChatList';
+import MisMatches from '../../componentes/misMatches/MisMatches';
 
 function IntercambioHome() {
   const [selectedOption, setSelectedOption] = useState('chats');
@@ -109,25 +111,7 @@ function IntercambioHome() {
       case 'chats':
         return (
           <div className='Intercambio-chat-body'>
-            <div className='contact-list-container'>
-              <div className='chat-contact-card'></div>
-              <div className='chat-contact-card'></div>
-              <div className='chat-contact-card'></div>
-            </div>
-            <div className='chat-container'>
-              <div className='chat-header'>
-                <div className='chat-title'>Nombre del contacto</div>
-                <div className='chat-tools'>Botones de ajustes del chat</div>
-              </div>
-              <div className='chat-message-container'>
-                <ul className='chat-message-list'>
-                  <li>Mensaje 1</li>
-                  <li>Mensaje 2</li>
-                  <li>Mensaje 3</li>
-                  <button>Enviar</button>
-                </ul>
-              </div>
-            </div>
+            <ChatList/>
           </div>
         );
       case 'mis-busquedas':
@@ -210,6 +194,13 @@ function IntercambioHome() {
               <button className='form-button' type="submit">Crear solicitud</button>
             </form>
           </div>
+          
+        );
+        case 'matches':
+        return (
+          <div className='Intercambio-matches-body'>
+            <MisMatches/>
+          </div>
         );
       default:
         return <div className='IntercambioHome-content'></div>;
@@ -224,6 +215,7 @@ function IntercambioHome() {
         <button onClick={() => handleOptionChange('mis-busquedas')}>MIS BÚSQUEDAS</button>
         <button onClick={() => handleOptionChange('ofertas')}>OFERTAS</button>
         <button onClick={() => handleOptionChange('solicitudes')}>SOLICITUDES</button>
+        <button onClick={() => handleOptionChange('matches')}>MIS MATCHES</button>
       </nav>
       <div className='IntercambioHome-content'>{renderContent()}</div>
       <FooterHomepage />
