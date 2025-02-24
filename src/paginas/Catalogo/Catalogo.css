@@ -12,7 +12,7 @@
 .Catalogo-body {
     width: 100vw;
     height: 80vh;
-    background-image: url(../../assets/images/BibliotecaAlejandría.png);
+    background-color: #F7F4F3;
     background-size: cover;
     background-position: center;
     overflow: hidden; 
@@ -68,6 +68,8 @@ h1 {
         transform: translateX(-50%) rotate(180deg);
     }
 }
+
+
 .image-grid::-webkit-scrollbar{
     margin: 1px;
 }
@@ -75,41 +77,44 @@ h1 {
     display: flex;
     flex-direction: column;
     width: 90%;
-    margin: 0 auto;
-    gap: 15px; 
-    overflow-y: auto; 
+    margin: auto;
+    gap: 10px; 
+    padding: 20px;
 }
 
 .row {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* lo dejamos???? */
     justify-content: center;
     gap: 10px; 
 }
 
 .image-item {
+    max-height: 210px;
+    min-height: 210px;
+    max-width: 140px;
+    min-width: 140px;
+    border: 2px solid #5B2333;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
     flex: 1 1 calc(12.5% - 10px); 
-    max-width: calc(12.5% - 10px); 
-    cursor: pointer;
     transition: transform 0.2s ease-in-out;
 }
 
 .image-item img {
     width: 100%;
-    height: auto;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .image-item:hover {
-    transform: scale(1.05);
+    transform: scale(1.055);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Modal styles */
 .modal-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
@@ -120,76 +125,105 @@ h1 {
 }
 
 .modal-content {
-    background: white;
-    border-radius: 10px;
-    max-width: 500px;
-    width: 90%;
-    padding: 20px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border: solid #5B2333;
+    display: flex;
+    gap: 15px;
+    flex-direction: row;
+    padding: 10px;
+    background-color: #F7F4F3;
+    border-radius: 5px;
     position: relative;
-    text-align: center;
+    min-width: 500px;
+    max-width: 600px;
+    min-height: 300px;
+    align-items: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.modal-body{
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    gap: 15px;
+    width: 300px;
+}
+.modal-image img {
+    max-width: 190px;
+    min-width: 190px;
+    margin-top: 5px;
+    margin-left: 10px;
+    border-radius: 5px;
+    
 }
 
-.modal-image img {
-    max-width: 100%;
-    border-radius: 10px;
+.modal-info {
+    margin-left: 35px;
+    font-size: 1.1em;
 }
 
 .modal-info h2 {
-    margin: 15px 0;
+    margin-bottom: 20px;
+
 }
 
 .modal-info p {
-    margin: 5px 0;
+    margin-left: 20px;
+    margin: 8px 0;
+    
 }
 
 .modal-buttons button {
-    margin: 10px 5px;
-    padding: 10px 20px;
-    border: none;
+    
+    max-width: 150px;
+    min-width: 150px;
+    max-height: 65px;
+    min-height: 65px;
+   
+   
+    font-size: 1.2em;
+    margin-left: 35px;
+    border: solid #5B2333;
     border-radius: 5px;
-    background-color: #007BFF;
-    color: white;
-    cursor: pointer;
+    background-color: #D3ABB6;
+    color: #F7F4F3;
     transition: background-color 0.3s ease;
 }
 
 .modal-buttons button:hover {
-    background-color: #0056b3;
+    background-color: #b86179;
 }
 
 .close-button {
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 15px;
     background: none;
     border: none;
-    font-size: 1.5rem;
+    font-size: 2rem;
     cursor: pointer;
-    color: #333;
+    color: #122C34;
 }
 
 .close-button:hover {
-    color: #000;
+    color: #EC0C43;
 }
 
 .cart-box {
     position: fixed;
-    top: 0px;
+    top: 10px;
     right: 20px;
     width: 250px;
-    background: white;
-    border: 1px solid #ddd;
+    background: #F7F4F3;
+    border: 2px solid #5B2333;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 15px;
+    padding: 20px;
     z-index: 1000;
     overflow-y: auto;
     max-height: 300px; 
 }
 
 .cart-box h3 {
-    margin: 0 0 10px;
+    margin: 0 0 15px;
     font-size: 1.2rem;
     text-align: center;
 }
@@ -202,76 +236,62 @@ h1 {
 
 .cart-box li {
     font-size: 0.9rem;
-    margin-bottom: 5px;
-    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #D3ABB6;
     padding-bottom: 5px;
 }
 
 .catalog-header {
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-around;
+    margin-top: 15px;
     width: 100%;
-}
-
-.catalog-header h1 {
-    color: white;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
 }
 
 .toggle-cart-button {
     float: right;
-    margin-left: 55%;
+   
     padding: 10px 10px;
     font-size: 1rem;
-    color: white;
-    background-color: #0056b3;
-    border: 1px solid;
+    color: #F7F4F3;
+    background-color: #89364e;
+    border: 3px solid #D3ABB6;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .toggle-cart-button:hover {
-    background-color: #007BFF;
+    background-color: #b86179;
 }
-/* Estilos para el contenedor de búsqueda */
-.search-container {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-    margin: 10px 0;
+
+.search-bar-container {
+    
+    
+   
+   
+    
+   
+    
   }
   
-  /* Estilos para el dropdown de selección */
-  .search-container select {
-    padding: 8px 10px;
-    font-size: 1rem;
-    border: 1px solid greenyellow;
+  .criteria-selector select {
+    
+    color: #F7F4F3;
+    border: 2px solid #5B2333;
     border-radius: 4px;
-    background-color: burlywood;
-    outline: none;
-    transition: border-color 0.3s ease;
+    background-color: #D3ABB6;
+    font-size: 14px;
   }
   
-  .search-container select:focus {
-    border-color: #007BFF;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-  }
-  
-  /* Estilos para el input de búsqueda */
-  .search-container .search-input {
-    padding: 8px 10px;
-    font-size: 1rem;
-    border: 1px solid blue;
+  .search-bar input {
+    width: 44vw;
+    
+    padding: 8px;
+    border: 0.5px solid #5B2333;
+    background-color: #D3ABB6;
     border-radius: 4px;
-    width: 250px;
-    outline: none;
-    transition: border-color 0.3s ease;
-  }
-  
-  .search-container .search-input:focus {
-    border-color: #007BFF;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    font-size: 14px;
   }
   

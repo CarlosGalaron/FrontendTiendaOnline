@@ -98,10 +98,8 @@ function Catalogo() {
       )}
       <div className="Catalogo-body">
         <div className="catalog-header">
-          <button className="toggle-cart-button" onClick={toggleCartVisibility}>
-            {isCartVisible ? "Ocultar Cesta" : "Mostrar Cesta"}
-          </button>
-          <div className="search-container">
+        <div className="search-bar-container">
+          <div className="criteria-selector">
             <select
               value={searchField}
               onChange={(e) => setSearchField(e.target.value)}
@@ -110,6 +108,8 @@ function Catalogo() {
               <option value="author">Autor</option>
               <option value="genre">Género</option>
             </select>
+          </div>
+          <div className="search-bar">
             <input
               type="text"
               className="search-input"
@@ -118,6 +118,11 @@ function Catalogo() {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
+        </div>
+          <button className="toggle-cart-button" onClick={toggleCartVisibility}>
+            {isCartVisible ? "Ocultar Cesta" : "Mostrar Cesta"}
+          </button>
+          
         </div>
         {isLoading ? (
           <p>Cargando libros...</p>

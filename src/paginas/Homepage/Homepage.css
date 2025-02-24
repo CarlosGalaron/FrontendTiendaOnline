@@ -1,6 +1,6 @@
 .homepage-father{
-    width: 100vw;
-    height: 100vh;    
+   
+    height: 105vh;    
     justify-content: flex-start;
     align-items: stretch;
     display: flex;
@@ -11,20 +11,19 @@
 .homepage-body{
     width: 100vw;
     height: 80vh;
-    background-image: url(../../assets/images/BibliotecaAlejandría.png);
+    background-color:#F7F4F3;
     background-size: cover;
     overflow: hidden; /* Evita el scroll */
     position: relative; /* Define los límites del movimiento */
     display: flex;
-    flex: 1;
+   
 }
 
 .homepage-body .texto{
-    background-color: rgba(7, 7, 7, 0.793);
+    background-color:#89364e;
     font-size: 30px;
     font-weight: bold;
-    font-family:'Courier New', Courier, monospace;
-    color: white;
+    color: #F7F4F3;
     position: absolute;
     width: 70%;
     height: 70%;
@@ -32,7 +31,7 @@
     left: 15%;
     line-height: 1.3;
     text-align: center;
-    border-radius: 20px;
+    border-radius: 5px;
 }
 
 .flying-book {
@@ -45,30 +44,8 @@
     opacity: 0.8; /* Para un efecto sutil */
 }
 
-@keyframes fly {
-    0% {
-        top: 100%;
-        left: 50%;
-        transform: translateX(-50%) rotate(0deg);
-    }
-    25% {
-        top: 50%;
-        left: 20%;
-        transform: translateX(-50%) rotate(45deg);
-    }
-    50% {
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%) rotate(90deg);
-    }
-    75% {
-        top: 50%;
-        left: 80%;
-        transform: translateX(-50%) rotate(135deg);
-    }
-    100% {
-        top: 100%;
-        left: 50%;
-        transform: translateX(-50%) rotate(180deg);
-    }
+
+.header-icon_container-hp{
+    width: 12em;
+    height: 2.5em;
 }

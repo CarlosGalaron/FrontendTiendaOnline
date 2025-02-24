@@ -1,7 +1,7 @@
 .login-father{
     width: 100vw;
     height: 100vh;
-    background-color:blanchedalmond;
+    background-color:#F7F4F3;
     color: black;
     justify-content: flex-start;
     align-items: stretch;
@@ -14,7 +14,6 @@
 .login-body{
     width: 100vw;
      height: 80vh;
-     background-image: url(../../assets/images/BibliotecaAlejandría.png);
      background-repeat: no-repeat;
      background-size: cover;
      justify-content: center;
@@ -32,9 +31,9 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    background-color: rgb(55, 94, 201);
-    color: white;
-    border: 2px solid darkblue;
+    background-color:#F7F4F3;
+    color: #5B2333;
+    border: 2.5px solid #5B2333;
     border-radius: 12px;        
     box-sizing: border-box;
 }
@@ -43,7 +42,7 @@
     text-align: center;
     font-size: 36px;
     font-family: Arial, Helvetica, sans-serif;
-    color: white;
+    color: #122C34;
     margin: 1%;
     font-weight: bolder;
     cursor: default;
@@ -51,10 +50,10 @@
 .login-input-text{
     width: 20em;
     height: 32px;
-    border-radius: 10px;
+    border-radius: 8px;
     border: none;
     margin: 1%;
-    border: 1px solid black;
+    border: 1.5px solid #5B2333;
     box-sizing: border-box;
     padding-left: 5px;
 }
@@ -66,22 +65,24 @@
     border-radius: 8px;
     border: none;
     margin: 1%;
-    background-color: darkgreen;
-    border: 2px solid darkgray;
+    background-color: #D3ABB6;
+    border: 2px solid #5B2333;
     color: white;
     box-sizing: border-box;
 }
 
 .button-login:hover{
-    background-color: darkcyan;
-    color: white;
-    border: 2px solid black;
+    background-color: #b86179;
+    color: #D3ABB6;
+    border: 2px solid #b86179;
     cursor: pointer;
     box-sizing: border-box;
 }
 
 .login-link{
     cursor: pointer;
-    color: darkgray;
     font-style: oblique;
+}
+.login-link:hover{
+    color: #D3ABB6;
 }

@@ -1,18 +1,19 @@
 .search-bar-container {
-    margin-top: 20px;
-    position: relative;
-    left: 25%;
-    width: 70%;
-    display: flex;
-    align-items: center;
-    gap: 16px;
+  margin-top: 15px;
+  position: relative;
+  left: 25%;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
   }
   
   .criteria-selector select {
     padding: 8px;
-    border: 1px solid #ccc;
+    color: #F7F4F3;
+    border: 2px solid #5B2333;
     border-radius: 4px;
-    background-color: #f9f9f9;
+    background-color: #D3ABB6;
     font-size: 14px;
   }
   
@@ -20,7 +21,8 @@
     width: 44vw;
     flex-grow: 1;
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 0.5px solid #5B2333;
+    background-color: #D3ABB6;
     border-radius: 4px;
     font-size: 14px;
   }
