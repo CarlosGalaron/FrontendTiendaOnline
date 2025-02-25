@@ -9,15 +9,24 @@ const Register = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState(''); // New state for confirming password
   const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Check if passwords match
+    if (password !== confirmPassword) {
+      alert('Las contraseñas no coinciden. Por favor, inténtalo de nuevo.');
+      return;
+    }
+
     const userData = { name, email, password };
 
     try {
       const result = await createUser(userData);
       console.log(result);
-      navigate('/'); // Aquí puedes manejar lo que sucede después de crear el usuario, ej: navegacion
+      navigate('/'); // Navigate after successful registration
     } catch (error) {
       console.error('Error al registrar el usuario:', error);
     }
@@ -30,9 +39,38 @@ const Register = () => {
         <div className="register-container">
           <h1 className="register-title">Registro</h1>
           <form className='form-group' onSubmit={handleSubmit}>
-            <input className='register-input-text' type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" />
-            <input className='register-input-text' type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
-            <input className='register-input-text' type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
+            <input
+              className='register-input-text'
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Name"
+              required
+            />
+            <input
+              className='register-input-text'
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
+              required
+            />
+            <input
+              className='register-input-text'
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+              required
+            />
+            <input
+              className='register-input-text'
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              placeholder="Confirm Password"
+              required
+            />
             <button className='button-register' type="submit">Register</button>
           </form>
         </div>
