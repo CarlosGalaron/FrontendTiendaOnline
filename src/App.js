@@ -6,7 +6,6 @@ import Homepage from "./paginas/Homepage/Homepage";
 import Login from "./paginas/Login/Login";
 import Registro from "./paginas/Registro/Registro";
 import Seleccion from "./paginas/SeleccionLibros/SeleccionLibros.jsx";
-import LibrosIntercambio from "./paginas/LibrosIntercambio/LibrosIntercambio";
 import Intercambio from "./paginas/Intercambiar/Intercambiar.jsx";
 import Tienda from "./paginas/Tienda/Tienda";
 import Catalogo from "./paginas/Catalogo/Catalogo.jsx";
@@ -52,14 +51,6 @@ function App() {
           element={
             <ProtectedRoute>
               <Seleccion />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/biblioteca"
-          element={
-            <ProtectedRoute>
-              <LibrosIntercambio />
             </ProtectedRoute>
           }
         />
