@@ -245,8 +245,8 @@ h1 {
     margin-top: 15px;
     width: 100%;
     display: flex;
-    justify-content: center;
-    gap: 100px;
+    justify-content: flex-start;
+    gap: 0px;
 }
 
 .toggle-cart-button {
@@ -267,17 +267,16 @@ h1 {
 }
 
 .search-bar-container {
-    
-    
-   
-   
-    
-   
-    
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    width: 70%;
+    align-items: center;
+    gap: 20px;
   }
   
   .criteria-selector select {
-    
+    padding: 8px;
     color: #F7F4F3;
     border: 2px solid #5B2333;
     border-radius: 4px;

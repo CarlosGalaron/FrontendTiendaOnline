@@ -1,5 +1,6 @@
 const API_URL = 'http://localhost:4000/api/users';
 
+// Function to create a new user
 export const createUser = async (userData) => {
     const response = await fetch(`${API_URL}/register`, {
         method: 'POST',
@@ -39,4 +40,48 @@ export const loginUser = async (credentials) => {
     localStorage.setItem('user', JSON.stringify(user));
 
     return { token, user };
+};
+// Function to fetch all users
+export const getUsers = async () => {
+    const response = await fetch(API_URL);
+    if (!response.ok) {
+        throw new Error('Error fetching users');
+    }
+    return await response.json();
+};
+
+// Function to fetch a user by ID
+export const getUserById = async (id) => {
+    const response = await fetch(`${API_URL}/${id}`);
+    if (!response.ok) {
+        throw new Error('Error fetching user');
+    }
+    return await response.json();
+};
+
+// Function to update a user
+export const updateUser = async (user) => {
+    const response = await fetch(`${API_URL}/${user.id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(user),
+    });
+
+    if (!response.ok) {
+        throw new Error('Error updating user');
+    }
+
+    return await response.json();
+};
+
+// Function to delete a user
+export const deleteUser = async (id) => {
+    const response = await fetch(`${API_URL}/${id}`, {
+        method: 'DELETE',
+    });
+    if (!response.ok) {
+        throw new Error('Error deleting user');
+    }
 };

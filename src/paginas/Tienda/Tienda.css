@@ -1,38 +1,21 @@
 .father-tienda {
-    width: 100vw;
-    min-height: 100vh;
-    display: flex;
-    justify-content: flex-start;
-    align-items: stretch;
-    flex-direction:column;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-direction:column;
 }
 
 .tienda-cesta {
-    width: 100vw;
-    min-height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    padding: 2rem;
-    padding-top: 4rem;
-    background-color: white;
+  width: 100vw;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  padding-top: 4rem;
+  background-color: #F7F4F3;
 }
-/* Estilo para el botón de Proceder al Pago */
-.total-compra button {
-    padding: 0.75rem 1.5rem;
-    background-color: #007bff;
-    border: none;
-    border-radius: 4px;
-    color: #fff;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-top: 1rem;
-    transition: background-color 0.3s ease;
-  }
-  
-  .total-compra button:hover {
-    background-color: #0056b3;
-  }
-  

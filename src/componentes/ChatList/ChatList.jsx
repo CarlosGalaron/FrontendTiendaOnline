@@ -8,7 +8,9 @@ function ChatList() {
   const [chatSeleccionado, setChatSeleccionado] = useState(null);
   const [usuario, setUsuario] = useState(null);
   const [socket, setSocket] = useState(null);
+  const [usuarios, setUsuarios] = useState({});
 
+  // Obtener usuario actual desde localStorage
   useEffect(() => {
     const usuarioLS = localStorage.getItem("user");
     if (usuarioLS) {
@@ -18,6 +20,7 @@ function ChatList() {
     }
   }, []);
 
+  // Conexión a socket y solicitud de chats
   useEffect(() => {
     if (!usuario) return;
 
@@ -45,6 +48,31 @@ function ChatList() {
     };
   }, [usuario]);
 
+  // Función para obtener el ID del otro usuario en un chat
+  const obtenerOtroUsuarioId = (chat) => {
+    if (!usuario) return null;
+    return chat.user1_id === usuario.id ? chat.user2_id : chat.user1_id;
+  };
+
+  // Cuando los chats cambian, obtenemos los nombres de los otros usuarios (si no se han cargado)
+  useEffect(() => {
+    if (chats.length === 0) return;
+    chats.forEach((chat) => {
+      const otroUsuarioId = obtenerOtroUsuarioId(chat);
+      if (otroUsuarioId && !usuarios[otroUsuarioId]) {
+        fetch(`http://localhost:4000/api/users/${otroUsuarioId}`)
+          .then((res) => res.json())
+          .then((data) => {
+            setUsuarios((prev) => ({ ...prev, [otroUsuarioId]: data.name }));
+          })
+          .catch((error) => {
+            console.error("Error al obtener el usuario:", error);
+            setUsuarios((prev) => ({ ...prev, [otroUsuarioId]: "Nombre no disponible" }));
+          });
+      }
+    });
+  }, [chats, usuario, usuarios]);
+
   const manejarClickChat = (chat) => {
     setChatSeleccionado(chat);
   };
@@ -55,19 +83,19 @@ function ChatList() {
         <h3>Mis Chats</h3>
         <ul>
           {chats.length > 0 ? (
-            chats.map((chat) => (
-              <li
-                key={chat.numRoom}
-                onClick={() => manejarClickChat(chat)}
-                className={`chat-item ${
-                  chatSeleccionado && chatSeleccionado.numRoom === chat.numRoom
-                    ? "selected"
-                    : ""
-                }`}
-              >
-                {chat.numRoom}
-              </li>
-            ))
+            chats.map((chat) => {
+              const otroUsuarioId = obtenerOtroUsuarioId(chat);
+              const nombreUsuario = usuarios[otroUsuarioId] || "Cargando...";
+              return (
+                <li
+                  key={chat.numRoom}
+                  onClick={() => manejarClickChat(chat)}
+                  className={`chat-item ${chatSeleccionado && chatSeleccionado.numRoom === chat.numRoom ? "selected" : ""}`}
+                >
+                  {nombreUsuario}
+                </li>
+              );
+            })
           ) : (
             <p>No tienes chats disponibles</p>
           )}
@@ -76,7 +104,7 @@ function ChatList() {
 
       <div className="chat-content">
         {chatSeleccionado ? (
-          <ChatRoom numRoom={chatSeleccionado.numRoom} />
+          <ChatRoom numRoom={chatSeleccionado.numRoom} otroUsuario={usuarios[obtenerOtroUsuarioId(chatSeleccionado)]} />
         ) : (
           <p>Seleccione un chat para iniciar la conversación.</p>
         )}

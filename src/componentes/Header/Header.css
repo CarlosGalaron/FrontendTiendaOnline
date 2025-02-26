@@ -94,3 +94,42 @@
     font-size: 16px;
 
 }
+
+
+.settings-popup {
+    position: absolute;
+    top: 60px; /* Ajusta según la altura de tu header */
+    right: 20px; /* Ajusta la posición horizontal según sea necesario */
+    background-color: white; /* Color de fondo */
+    border: 1px solid #ccc; /* Borde de la ventana */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+    padding: 15px; /* Espaciado interno */
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+  }
+  
+  .settings-button {
+    width: 100%; /* Ocupar todo el ancho del contenedor */
+    height: 40px; /* Altura de los botones */
+    background-color: rgb(55, 94, 201); /* Color de fondo para los botones */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    margin: 5px 0; /* Margen vertical entre los botones */
+    font-size: 16px; /* Tamaño de la fuente */
+    font-weight: bold; /* Negrita para los textos */
+    cursor: pointer; /* Cambiar el cursor al pasar el mouse */
+    transition: background-color 0.3s; /* Transición para suavizar el cambio de color */
+  }
+  
+  .settings-button:hover {
+    background-color: rgb(45, 74, 181); /* Color más oscuro al pasar el mouse */
+  }
+  
+  .logout-button {
+    background-color: red; /* Color diferente para el botón de logout */
+  }
+  
+  .logout-button:hover {
+    background-color: darkred; /* Color más oscuro al pasar el mouse */
+  }

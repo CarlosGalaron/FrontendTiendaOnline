@@ -1,17 +1,21 @@
 /* SolicitudesForm.css */
 .solicitudes-form-container {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 400px;
-    margin: auto;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 40px;
   }
   
   .form-solicitud {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding: 20px;
+    background: #F7F4F3;
+    border: 2px solid #5B2333;
+    border-radius: 8px;
+    width: 320px;
   }
   
   .form-solicitud input,
@@ -22,11 +26,17 @@
   }
   
   .form-button {
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
+    padding: 10px;
+    margin-left: 22%;
+    width: 150px;
+    background-color: #D3ABB6;
+    border: 0.5px solid #5B2333;
+    border-radius: 8px;
     cursor: pointer;
+    font-size: 16px;
   }
+  .form-button:hover {
+    background-color: #b86179;
+    color: white;
+}
   

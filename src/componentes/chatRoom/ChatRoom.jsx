@@ -1,20 +1,20 @@
 import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
-import './chatRoom.css';
+import "./chatRoom.css";
 import { io } from "socket.io-client";
-import emojisData from './data/emojis.json';
+import emojisData from "./data/emojis.json";
 
-function ChatRoom({ numRoom: numRoomProp }) {
+function ChatRoom({ numRoom: numRoomProp, otroUsuario }) {
   const { numRoom: numRoomParam } = useParams();
   const numRoom = numRoomProp || numRoomParam;
-  
+
   const user = JSON.parse(localStorage.getItem("user"));
 
   const [socket, setSocket] = useState(null);
-  const [otroUsuario, setOtroUsuario] = useState("Desconocido");
   const [nuevoMensaje, setNuevoMensaje] = useState("");
   const [mensajes, setMensajes] = useState([]);
   const [mostrarEmojis, setMostrarEmojis] = useState(false);
+  const [usuarios, setUsuarios] = useState({});
 
   const mensajesContainerRef = useRef(null);
   const emojis = emojisData.emojis;
@@ -29,24 +29,29 @@ function ChatRoom({ numRoom: numRoomProp }) {
 
     newSocket.emit("get_chat_users", numRoom);
 
-    newSocket.on("chat_users", async (usuarios) => {
-      if (usuarios.length === 2) {
-        const otroUsuarioId = usuarios.find((id) => id !== user.id);
-        
+    newSocket.on("chat_users", async (ids) => {
+      if (ids.length === 2) {
+        const otroUsuarioId = ids.find((id) => id !== user.id);
         if (otroUsuarioId) {
-          try {
-            const respuesta = await fetch(`http://localhost:4000/get_user/${otroUsuarioId}`);
-            const data = await respuesta.json();
-            setOtroUsuario(data.name || "Desconocido");
-          } catch (error) {
-            console.error("Error obteniendo el nombre del usuario:", error);
+          if (usuarios[otroUsuarioId]) {
+            // No need to fetch if already cached
+          } else {
+            try {
+              const res = await fetch(`http://localhost:4000/api/users/${otroUsuarioId}`);
+              if (!res.ok) throw new Error("Error al obtener el usuario");
+              const data = await res.json();
+              const nombre = data.name || "Desconocido";
+              setUsuarios((prev) => ({ ...prev, [otroUsuarioId]: nombre })); // Cache the user
+            } catch (error) {
+              console.error("Error fetching user:", error);
+            }
           }
         }
       }
     });
 
     newSocket.on("chat_message", (data) => {
-      setMensajes((prevMensajes) => [...prevMensajes, data]);
+      setMensajes((prev) => [...prev, data]);
     });
 
     newSocket.on("chat_history", (historial) => {
@@ -54,8 +59,8 @@ function ChatRoom({ numRoom: numRoomProp }) {
     });
 
     newSocket.on("chat_file", (data) => {
-      setMensajes((prevMensajes) => [
-        ...prevMensajes,
+      setMensajes((prev) => [
+        ...prev,
         {
           usuario: data.usuario,
           archivo: data.archivo,
@@ -76,7 +81,13 @@ function ChatRoom({ numRoom: numRoomProp }) {
     return () => {
       newSocket.disconnect();
     };
-  }, [numRoom, user.id]);
+  }, [numRoom, user.id, usuarios]);
+
+  useEffect(() => {
+    if (mensajesContainerRef.current) {
+      mensajesContainerRef.current.scrollTop = mensajesContainerRef.current.scrollHeight;
+    }
+  }, [mensajes]);
 
   const enviarMensaje = () => {
     if (socket && nuevoMensaje.trim() !== "") {
@@ -106,21 +117,14 @@ function ChatRoom({ numRoom: numRoomProp }) {
             archivo: reader.result,
             nombreArchivo: archivo.name,
             tipoArchivo: archivo.type,
-            room: numRoom
+            room: numRoom,
           });
         }
       };
       reader.readAsDataURL(archivo);
-      // Reiniciar el valor del input para permitir la carga del mismo archivo
-      e.target.value = null; // Esto permite seleccionar el mismo archivo nuevamente
+      e.target.value = null;
     }
   };
-
-  useEffect(() => {
-    if (mensajesContainerRef.current) {
-      mensajesContainerRef.current.scrollTop = mensajesContainerRef.current.scrollHeight;
-    }
-  }, [mensajes]);
 
   const agregarEmoji = (emoji) => {
     setNuevoMensaje((prev) => prev + emoji);
@@ -129,28 +133,28 @@ function ChatRoom({ numRoom: numRoomProp }) {
 
   return (
     <div className="App">
-      <h3>Chat con: {otroUsuario}</h3>
+      <h3>Chat con: {otroUsuario || "Cargando..."}</h3>
       <div className="mensajes-container" ref={mensajesContainerRef}>
         <ul className="ul-mensajes">
           {mensajes.map((mensaje, index) => (
-            <li key={index} className={`li-mensaje ${mensaje.usuario === user.name ? 'own-message' : ''}`}>
-              {mensaje.usuario}: 
-              {mensaje.texto && <span>{mensaje.texto}</span>}
-              {mensaje.archivo && (
-                mensaje.tipoArchivo.startsWith("image/") ? (
+            <li key={index} className={`li-mensaje ${mensaje.usuario === user.name ? "own-message" : ""}`}>
+              {mensaje.usuario}: {mensaje.texto && <span>{mensaje.texto}</span>}
+              {mensaje.archivo &&
+                (mensaje.tipoArchivo.startsWith("image/") ? (
                   <img src={mensaje.archivo} alt={mensaje.nombreArchivo} className="archivo-imagen" />
                 ) : (
                   <a href={mensaje.archivo} download={mensaje.nombreArchivo} className="archivo-enlace">
                     Descargar {mensaje.nombreArchivo}
                   </a>
-                )
-              )}
+                ))}
             </li>
           ))}
         </ul>
       </div>
       <div className="chat-input-container">
-        <button onClick={() => setMostrarEmojis(!mostrarEmojis)} className="emoji-button">😀</button>
+        <button onClick={() => setMostrarEmojis(!mostrarEmojis)} className="emoji-button">
+          😀
+        </button>
         <label htmlFor="file-input" className="file-button">
           <span role="img" aria-label="Adjuntar archivo">📎</span>
         </label>
@@ -159,11 +163,11 @@ function ChatRoom({ numRoom: numRoomProp }) {
           type="text"
           value={nuevoMensaje}
           onChange={(e) => setNuevoMensaje(e.target.value)}
-          onKeyDown={manejarTeclaEnter} 
+          onKeyDown={manejarTeclaEnter}
           placeholder="Escribe..."
           className="chat-input"
         />
-        {mostrarEmojis && ( 
+        {mostrarEmojis && (
           <div className="emoji-selector">
             {emojis.map((emoji, index) => (
               <span key={index} className="emoji" onClick={() => agregarEmoji(emoji.emoji)}>

@@ -1,4 +1,4 @@
-//Header.jsx
+// Header.jsx
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Header.css';
@@ -6,6 +6,7 @@ import './Header.css';
 function Header() {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [showSettings, setShowSettings] = useState(false); // Estado para mostrar la ventana de ajustes
 
   useEffect(() => {
     const checkLoginStatus = () => {
@@ -21,7 +22,6 @@ function Header() {
       window.removeEventListener('storage', checkLoginStatus);
     };
   }, []);
-
 
   const handleLogout = () => {
     localStorage.removeItem('authToken'); // Eliminar el token del almacenamiento
@@ -42,6 +42,15 @@ function Header() {
     navigate('/catalogo'); // Ir a la vista de catalogo
   };
 
+  const toggleSettings = () => {
+    setShowSettings(!showSettings); // Alternar la visibilidad de la ventana de ajustes
+  };
+
+  const handleUserClick = () => {
+    navigate('/usuario'); // Navegar a la página de usuario
+    setShowSettings(false); // Cerrar la ventana de ajustes
+  };
+
   return (
     <div className="header-container">
       <button onClick={handleLogoClick} className="header-icon_button">
@@ -54,7 +63,17 @@ function Header() {
           <button className="header-button" onClick={() => navigate('/seleccion')}>Selección de libros</button>
           <button className="header-button" onClick={() => navigate('/IntercambioHome')}>Usuario</button>
           <button className="header-button" onClick={() => navigate('/tienda')}>Cesta</button>
-          <button className="header-button logout-button" onClick={handleLogout}>LOG OUT</button>
+          <button className="header-button" onClick={toggleSettings}>Ajustes</button> 
+
+
+
+          {showSettings && (
+            <div className="settings-popup">
+              <button className="settings-button" onClick={handleUserClick}>Usuario</button>
+              <button className="settings-button logout-button" onClick={handleLogout}>LOG OUT</button>
+              <button className="settings-button" onClick={toggleSettings}>Cerrar</button> {/* Botón para cerrar la ventana */}
+            </div>
+          )}
         </>
       ) : (
         <div className="headerH-container">
