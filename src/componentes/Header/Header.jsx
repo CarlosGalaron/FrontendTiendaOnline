@@ -77,8 +77,8 @@ function Header() {
         </>
       ) : (
         <div className="headerH-container">
-          <div className="navigate-login-button" onClick={handleLoginClick}>LOG IN</div>
           <div className="navigate-login-button" onClick={handleSignUpClick}>SIGN IN</div>
+          <div className="navigate-login-button" onClick={handleLoginClick}>LOG IN</div>
         </div>
       )}
     </div>

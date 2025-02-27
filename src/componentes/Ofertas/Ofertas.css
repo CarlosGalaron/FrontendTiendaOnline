@@ -1,12 +1,10 @@
 /* Contenedor general */
 .ofertas-container {
-    width: 90%;
-    max-width: 900px;
-    margin: 20px auto;
-    border-radius: 8px;
+    max-width: 650px;
+    margin:auto;
+   
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: white;
+    background-color: #F7F4F3;
 }
 
 /* Grid general */
@@ -14,34 +12,39 @@
     display: grid;
     grid-template-columns: 2fr 2fr 1fr 2fr; /* Ajusta la proporción entre columnas */
     gap: 10px;
-    padding: 12px;
+    padding: 8px;
     align-items: center;
     text-align: center;
 }
 
 /* Encabezado */
 .ofertas-header {
-    background-color: #007bff;
-    color: white;
+    background-color: #F7F4F3;
+    color: #89364e;
+    border: 1px solid #89364e;
+    border-radius: 8px;
     font-weight: bold;
     text-transform: uppercase;
 }
 
 /* Elementos de la lista */
 .ofertas-item {
-    border-bottom: 1px solid #ddd;
-    background-color: white;
+    border-bottom: 0.5px solid #D3ABB6;
+    background-color: #F7F4F3;
 }
 
 .ofertas-item:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #F7F4F3;
 }
 
 /* Estados de los libros */
 .estado {
     font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 5px;
+    padding: 5px;
+    border: 0.5px solid #122C34;
+    color: #122C34;
+    width:80px ;
+    border-radius: 2px;
 }
 
 .estado.pendiente {
@@ -62,21 +65,22 @@
 /* Botones */
 .acciones {
     display: flex;
-    gap: 10px;
+    gap: 5px;
     justify-content: center;
 }
 
 .btn {
     padding: 5px 10px;
-    font-size: 12px;
+    font-size: 11px;
     border-radius: 5px;
     cursor: pointer;
     border: none;
 }
 
 .btn-primary {
-    background-color: #007bff;
+    background-color: #4d90c4;
     color: white;
+    width: 50px;
 }
 
 .btn-primary:hover {
@@ -84,8 +88,9 @@
 }
 
 .btn-danger {
-    background-color: #dc3545;
+    background-color: #d05461;
     color: white;
+    width: 60px;
 }
 
 .btn-danger:hover {
