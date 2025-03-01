@@ -17,7 +17,7 @@ export const createOffer = async ({ user_id, title, author, book_state }) => {
 
   try {
     const response = await fetch(
-      "http://localhost:4000/api/books/register-exchange",
+      "http://localhost:4000/api/books/exchange",
       {
         method: "POST",
         headers: {
@@ -58,7 +58,7 @@ export const createRequest = async ({ user_id, title, author, book_state }) => {
     });
 
     const response = await fetch(
-      "http://localhost:4000/api/books/register-exchange",
+      "http://localhost:4000/api/books/exchange",
       {
         method: "POST",
         headers: {
@@ -145,12 +145,11 @@ export const getBooks = async () => {
     throw new Error("Respuesta no es un JSON válido");
   }
 };
+// Función para eliminar una oferta
 export const deleteOffer = async (offerId) => {
-  const response = await fetch(`http://localhost:4000/api/offers/${offerId}`, {
+  const response = await fetch(`http://localhost:4000/api/books/offers/${offerId}`, {
     method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: { "Content-Type": "application/json" },
   });
   if (!response.ok) {
     throw new Error("Error al eliminar la oferta");
@@ -158,12 +157,11 @@ export const deleteOffer = async (offerId) => {
   return response.json();
 };
 
+// Función para actualizar una oferta
 export const updateOffer = async (offer) => {
-  const response = await fetch(`http://localhost:4000/api/offers/${offer.id}`, {
+  const response = await fetch(`http://localhost:4000/api/books/offers/${offer.id}`, {
     method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(offer),
   });
   if (!response.ok) {
