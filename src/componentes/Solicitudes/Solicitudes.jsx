@@ -1,8 +1,37 @@
 import React from "react";
 import "./Solicitudes.css";
-// import IntercambioHome from "../../paginas/IntercambioHome/IntercambioHome";
+import { deleteRequest, updateRequest } from "../../api/bookApi";
 
-const Solicitudes = ({ solicitudes, eliminarSolicitud, editarSolicitud }) => {
+const Solicitudes = ({ solicitudes, setSolicitudes }) => {
+  // Función para eliminar una solicitud
+  const eliminarSolicitud = async (id) => {
+    try {
+      await deleteRequest(id);
+      setSolicitudes((prev) => prev.filter((solicitud) => solicitud.id !== id));
+      alert("Solicitud eliminada con éxito");
+    } catch (error) {
+      console.error("Error eliminando solicitud:", error);
+      alert("Error eliminando solicitud");
+    }
+  };
+
+  // Función para editar una solicitud
+  const editarSolicitud = async (solicitud) => {
+    const nuevoTitulo = prompt("Editar título", solicitud.title);
+    if (!nuevoTitulo || nuevoTitulo === solicitud.title) return;
+    try {
+      const solicitudActualizada = { id: solicitud.id, title: nuevoTitulo };
+      await updateRequest(solicitudActualizada);
+      setSolicitudes((prev) =>
+        prev.map((s) => (s.id === solicitud.id ? { ...s, title: nuevoTitulo } : s))
+      );
+      alert("Solicitud actualizada con éxito");
+    } catch (error) {
+      console.error("Error editando solicitud:", error);
+      alert("Error editando solicitud");
+    }
+  };
+
   return (
     <div className="solicitudes-container">
       <div className="solicitudes-grid solicitudes-header">
@@ -20,8 +49,12 @@ const Solicitudes = ({ solicitudes, eliminarSolicitud, editarSolicitud }) => {
             {solicitud.book_state}
           </div>
           <div className="acciones">
-            <button className="btn btn-primary" onClick={() => editarSolicitud(solicitud)}>✏ Editar</button>
-            <button className="btn btn-danger" onClick={() => eliminarSolicitud(solicitud.id)}>❌ Eliminar</button>
+            <button className="btn btn-primary" onClick={() => editarSolicitud(solicitud)}>
+              ✏ Editar
+            </button>
+            <button className="btn btn-danger" onClick={() => eliminarSolicitud(solicitud.id)}>
+              ❌ Eliminar
+            </button>
           </div>
         </div>
       ))}

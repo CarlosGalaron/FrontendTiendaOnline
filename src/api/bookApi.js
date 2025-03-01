@@ -169,3 +169,29 @@ export const updateOffer = async (offer) => {
   }
   return response.json();
 };
+
+// Función para eliminar una solicitud
+export const deleteRequest = async (requestId) => {
+  const response = await fetch(`http://localhost:4000/api/books/solicitudes/${requestId}`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+  });
+  if (!response.ok) {
+    throw new Error("Error al eliminar la solicitud");
+  }
+  return response.json();
+};
+
+// Función para actualizar una solicitud
+export const updateRequest = async (request) => {
+  const response = await fetch(`http://localhost:4000/api/books/solicitudes/${request.id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(request),
+  });
+  if (!response.ok) {
+    throw new Error("Error al actualizar la solicitud");
+  }
+  return response.json();
+};
+
