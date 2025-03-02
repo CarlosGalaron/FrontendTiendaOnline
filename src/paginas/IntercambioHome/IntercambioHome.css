@@ -86,4 +86,11 @@
     scrollbar-width: thin;
     scrollbar-color: burlywood transparent;
   }
-  
+  /*matches */
+  .Intercambio-matches-body{
+    width: 100%;
+    flex-direction: column;
+    
+   width: 100%;
+    justify-content: center;
+  }

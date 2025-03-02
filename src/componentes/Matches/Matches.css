@@ -1,11 +1,11 @@
 /* Estilos para la tarjeta de match */
 .match-card {
-  border: 1px solid #ccc;
+  border: 2px solid #5B2333;
   border-radius: 8px;
   padding: 16px;
   margin: 16px 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #f9f9f9;
+  background-color: #F7F4F3;
 }
 
 /* Estilos para los detalles del match */
@@ -15,19 +15,20 @@
 
 .match-details h3 {
   margin-top: 0;
-  color: #333;
+  font-size: 20px;
+  color: #122C34;
 }
 
 .match-details p {
   margin: 8px 0;
-  color: #555;
+  color: #122C34;
 }
 
 /* Estilos para el botón "ACEPTAR MATCH" */
 .aceptar-match-btn {
-  background-color: #4CAF50; /* Verde */
-  color: white;
-  border: none;
+  background-color: #D3ABB6; /* Verde */
+  color: #5B2333;
+  border: 2px solid #5B2333;;
   border-radius: 4px;
   padding: 10px 20px;
   font-size: 16px;
@@ -36,9 +37,9 @@
 }
 
 .aceptar-match-btn:hover {
-  background-color: #45a049; /* Verde más oscuro al pasar el mouse */
+  background-color: #b86179; /* Verde más oscuro al pasar el mouse */
 }
 
 .aceptar-match-btn:active {
-  background-color: #3d8b40; /* Verde aún más oscuro al hacer clic */
+  background-color: #b86179; /* Verde aún más oscuro al hacer clic */
 }

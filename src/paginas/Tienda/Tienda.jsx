@@ -31,8 +31,10 @@ function Tienda() {
     <div className="father-tienda">
       <Header />
       <div className="tienda-cesta">
+      
         {cartBooks.length > 0 ? (
-          <>
+          <>  
+            <div className="tienda-carts">
             {cartBooks.map((book) => (
               <TarjetaCesta
                 key={book.ISBN}
@@ -40,6 +42,7 @@ function Tienda() {
                 onRemove={removeFromCart}
               />
             ))}
+            </div>
             <div className="total-compra">
               <h3>Total: ${totalCompra.toFixed(2)}</h3>
               {!showPayment && (
@@ -47,12 +50,13 @@ function Tienda() {
                   Proceder al Pago
                 </button>
               )}
-            </div>
+            
             {showPayment && (
               <div className="payment-form">
                 <Pago totalCompra={totalCompra} totalBooks={totalBooks} />
               </div>
             )}
+            </div>
           </>
         ) : (
           <p>La cesta está vacía</p>
