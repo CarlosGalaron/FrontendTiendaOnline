@@ -2,6 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Header.css';
+import imgUsuario from '../../assets/images/imgUsuario.png';
+import logout from '../../assets/images/logout.png';
+import cross from '../../assets/images/cross.png';
 
 function Header() {
   const navigate = useNavigate();
@@ -69,9 +72,11 @@ function Header() {
 
           {showSettings && (
             <div className="settings-popup">
-              <button className="settings-button" onClick={handleUserClick}>Usuario</button>
-              <button className="settings-button logout-button" onClick={handleLogout}>LOG OUT</button>
-              <button className="settings-button" onClick={toggleSettings}>Cerrar</button> {/* Botón para cerrar la ventana */}
+              <button  id='close-b' onClick={toggleSettings}><img id='close' className='icon-adj' src={cross} alt="cross" /></button> 
+              <div className='use-lout'>
+              <button className="settings-button" onClick={handleUserClick}><img className='icon-adj' src={imgUsuario} alt="imgUsuario" />Usuario</button>
+              <button className="settings-button"  onClick={handleLogout}><img className='icon-adj' id='logout-btn' src={logout} alt="logout" />LogOut</button>
+              </div>
             </div>
           )}
         </>

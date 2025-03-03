@@ -1,38 +1,47 @@
 .userBody{
-    height: 71vh;
+    height:100vh;
+    background-color: #F7F4F3;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .profile-container {
-    max-width: 600px;
+    max-width: 650px;
+    
     height: 100%;
     margin: 2rem auto;
+    margin-top: 3rem;
     font-family: Arial, sans-serif;
     text-align: center;
+    
   }
   
   .profile-container h1 {
     margin-bottom: 1rem;
+    color: #5B2333;
   }
   
   .profile-table {
     width: 100%;
     border-collapse: collapse;
-    margin: 0 auto;
+    border: 3px solid #5B2333;
+    
   }
   
   .profile-table thead {
-    background-color: #007bff;
+    background-color: #b86179;
   }
   
   .profile-table thead th {
-    color: #fff;
+    color: #F7F4F3;
     text-transform: uppercase;
     padding: 0.75rem;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 2px solid #5B2333;
   }
   
   .profile-table tbody tr {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #5B2333;
   }
   
   .profile-table tbody tr td {
@@ -40,12 +49,12 @@
   }
   
   .profile-table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #F7F4F3;
   }
   
   /* Botones */
   .btn-edit {
-    background-color: #3498db; /* Azul */
+    background-color: #4d90c4; /* Azul */
     color: #fff;
     border: none;
     padding: 0.4rem 0.8rem;
@@ -56,11 +65,11 @@
   }
   
   .btn-edit:hover {
-    background-color: #2980b9;
+    background-color: #3498db;
   }
   
   .btn-delete {
-    background-color: #e74c3c; /* Rojo */
+    background-color: #d05461; /* Rojo */
     color: #fff;
     border: none;
     padding: 0.4rem 0.8rem;
