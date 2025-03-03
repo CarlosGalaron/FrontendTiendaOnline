@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './IntercambioHome.css';
 import Header from '../../componentes/Header/Header';
 import FooterHomepage from '../../componentes/Footer/Footer';
-import Ofertas from '../../componentes/Ofertas/Ofertas';
-import Solicitudes from '../../componentes/Solicitudes/Solicitudes';
+import MisBusquedas from '../../componentes/IntercambioHomeComponents/MisBusquedas';
+import OfertasForm from '../../componentes/IntercambioHomeComponents/OfertasForm';
+import SolicitudesForm from '../../componentes/IntercambioHomeComponents/SolicitudesForm';
 import { createOffer, createRequest, getUserExchangeBooks } from '../../api/bookApi'; // Importamos la API
 import ChatList from '../../componentes/ChatList/ChatList';
 import MisMatches from '../../componentes/misMatches/MisMatches';
@@ -53,9 +54,13 @@ function IntercambioHome() {
     setMostrarOfertas(!mostrarOfertas);
   };
 
-  const handleInputChange = (event, setStateFunction) => {
+   const handleInputChange = (event, type) => {
     const { name, value } = event.target;
-    setStateFunction((prevData) => ({ ...prevData, [name]: value }));
+    if (type === "offer") {
+      setOfferData((prevData) => ({ ...prevData, [name]: value }));
+    } else if (type === "request") {
+      setRequestData((prevData) => ({ ...prevData, [name]: value }));
+    }
   };
   const handleCreateOffer = async (e) => {
     e.preventDefault();
@@ -116,84 +121,33 @@ function IntercambioHome() {
         );
       case 'mis-busquedas':
         return (
-          <div className='Intercambio-busqueda-body'>
-            <button className='busqueda-toggle-button' onClick={toggleBusqueda}>
-              {mostrarOfertas ? 'Ver Solicitudes' : 'Ver Ofertas'}
-            </button>
-            <div className='busqueda-list-container'>
-              {loading ? (
-                <p>Cargando...</p>
-              ) : mostrarOfertas ? (
-                <Ofertas ofertas={ofertas} />
-              ) : (
-                <Solicitudes solicitudes={solicitudes} />
-              )}
-            </div>
-          </div>
+          <MisBusquedas 
+  mostrarOfertas={mostrarOfertas} 
+  toggleBusqueda={toggleBusqueda} 
+  loading={loading} 
+  ofertas={ofertas} 
+  solicitudes={solicitudes}
+  setOfertas={setOfertas}
+  setSolicitudes={setSolicitudes} 
+/>
+
+        
         );
       case 'ofertas':
         return (
-          <div className='Intercambio-form-body'>
-            <form className='form-oferta' onSubmit={handleCreateOffer}>
-              <label>Título</label>
-              <input
-                type="text"
-                name="title"
-                placeholder="Don Quijote de la Mancha"
-                value={offerData.title}
-                onChange={(e) => handleInputChange(e, setOfferData)}
-              />
-              <label>Autor</label>
-              <input
-                type="text"
-                name="author"
-                placeholder="Miguel de Cervantes"
-                value={offerData.author}
-                onChange={(e) => handleInputChange(e, setOfferData)}
-              />
-              <label>Estado del libro</label>
-              <input
-                type="text"
-                name="book_state"
-                placeholder="Nuevo/Seminuevo/Deteriorado"
-                value={offerData.book_state}
-                onChange={(e) => handleInputChange(e, setOfferData)}
-              />
-              <button className='form-button' type="submit">Crear oferta</button>
-            </form>
-          </div>
+          <OfertasForm 
+            offerData={offerData} 
+            handleInputChange={handleInputChange} 
+            handleCreateOffer={handleCreateOffer} 
+          />
         );
       case 'solicitudes':
         return (
-          <div className='Intercambio-form-body'>
-            <form className='form-solicitud' onSubmit={handleCreateRequest}>
-              <label>Título</label>
-              <input
-                type="text"
-                name="title"
-                placeholder="Don Quijote de la Mancha"
-                value={requestData.title}
-                onChange={(e) => handleInputChange(e, setRequestData)}
-              />
-              <label>Autor</label>
-              <input
-                type="text"
-                name="author"
-                placeholder="Miguel de Cervantes"
-                value={requestData.author}
-                onChange={(e) => handleInputChange(e, setRequestData)}
-              />
-              <label>Estado del libro</label>
-              <input
-                type="text"
-                name="book_state"
-                placeholder="Nuevo/Seminuevo/Deteriorado"
-                value={requestData.book_state}
-                onChange={(e) => handleInputChange(e, setRequestData)}
-              />
-              <button className='form-button' type="submit">Crear solicitud</button>
-            </form>
-          </div>
+          <SolicitudesForm 
+          requestData={requestData} 
+          handleInputChange={handleInputChange} 
+          handleCreateRequest={handleCreateRequest} 
+        />
           
         );
         case 'matches':
