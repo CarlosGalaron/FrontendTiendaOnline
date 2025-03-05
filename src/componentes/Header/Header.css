@@ -157,9 +157,7 @@
     color: #b86179; /* Color más oscuro al pasar el mouse */
   }
   
-  .logout-button {
-    /* Color diferente para el botón de logout */
-  }
+  
   
   .logout-button:hover {
     color: red; /* Color más oscuro al pasar el mouse */

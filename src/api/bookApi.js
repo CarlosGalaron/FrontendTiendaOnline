@@ -145,12 +145,11 @@ export const getBooks = async () => {
     throw new Error("Respuesta no es un JSON válido");
   }
 };
+// Función para eliminar una oferta
 export const deleteOffer = async (offerId) => {
-  const response = await fetch(`http://localhost:4000/api/offers/${offerId}`, {
+  const response = await fetch(`http://localhost:4000/api/books/offers/${offerId}`, {
     method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: { "Content-Type": "application/json" },
   });
   if (!response.ok) {
     throw new Error("Error al eliminar la oferta");
@@ -158,12 +157,11 @@ export const deleteOffer = async (offerId) => {
   return response.json();
 };
 
+// Función para actualizar una oferta
 export const updateOffer = async (offer) => {
-  const response = await fetch(`http://localhost:4000/api/offers/${offer.id}`, {
+  const response = await fetch(`http://localhost:4000/api/books/offers/${offer.id}`, {
     method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(offer),
   });
   if (!response.ok) {
@@ -171,3 +169,29 @@ export const updateOffer = async (offer) => {
   }
   return response.json();
 };
+
+// Función para eliminar una solicitud
+export const deleteRequest = async (requestId) => {
+  const response = await fetch(`http://localhost:4000/api/books/solicitudes/${requestId}`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+  });
+  if (!response.ok) {
+    throw new Error("Error al eliminar la solicitud");
+  }
+  return response.json();
+};
+
+// Función para actualizar una solicitud
+export const updateRequest = async (request) => {
+  const response = await fetch(`http://localhost:4000/api/books/solicitudes/${request.id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(request),
+  });
+  if (!response.ok) {
+    throw new Error("Error al actualizar la solicitud");
+  }
+  return response.json();
+};
+
