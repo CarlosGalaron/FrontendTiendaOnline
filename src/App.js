@@ -41,14 +41,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route
-          path="/seleccion"
-          element={
-            <ProtectedRoute>
-              <Seleccion />
-            </ProtectedRoute>
-          }
-        />
 
         <Route
           path="/intercambioHome"
