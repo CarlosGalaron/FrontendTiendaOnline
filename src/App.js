@@ -71,7 +71,7 @@ function App() {
           }
         />
         <Route
-          path="/chatList"
+          path="/chatList" 
           element={
             <ProtectedRoute>
               <ChatList />

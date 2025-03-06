@@ -4,7 +4,8 @@ import "./Matches.css";
 
 const socket = io("http://localhost:4000");
 
-const Matches = ({ match, userId }) => {
+const Matches = ({ match }) => {
+  
   const [chatCreado, setChatCreado] = useState(false);
 
   useEffect(() => {
@@ -15,6 +16,8 @@ const Matches = ({ match, userId }) => {
   }, [match.id]);
 
   const handleAceptarMatch = () => {
+    match.id_user1 = match.mi_oferta.registrado_por;
+    match.id_user2 = match.su_oferta.registrado_por;
     if (!match.id_user1 || !match.id_user2) {
       alert("Error: No se pueden obtener los IDs de los usuarios.");
       return;
@@ -65,7 +68,7 @@ const Matches = ({ match, userId }) => {
       <button
         className="aceptar-match-btn"
         onClick={handleAceptarMatch}
-        disabled={!match.id_user1 || !match.id_user2 || chatCreado}
+        disabled={!match.mi_oferta.registrado_por || !match.su_oferta.registrado_por || chatCreado}
       >
         {chatCreado ? "CHAT CREADO" : "ACEPTAR MATCH"}
       </button>
