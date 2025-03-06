@@ -6,14 +6,12 @@ import Homepage from "./paginas/Homepage/Homepage";
 import Login from "./paginas/Login/Login";
 import Registro from "./paginas/Registro/Registro";
 import Seleccion from "./paginas/SeleccionLibros/SeleccionLibros.jsx";
-import Intercambio from "./paginas/Intercambiar/Intercambiar.jsx";
 import Tienda from "./paginas/Tienda/Tienda";
 import Catalogo from "./paginas/Catalogo/Catalogo.jsx";
 import ProtectedRoute from "./componentes/ProtectedRoutes";
 import IntercambioHome from "./paginas/IntercambioHome/IntercambioHome.jsx";
 import ChatRoom from "./componentes/chatRoom/ChatRoom.jsx";
 import ChatList from "./componentes/ChatList/ChatList.jsx";
-import MisMatches from "./componentes/misMatches/MisMatches.jsx";
 import UserProfile from "./paginas/UserProfile/UserProfile";
 
 
@@ -25,9 +23,6 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/registro" element={<Registro />} />
-        {<Route path="/catalogo" element={<Catalogo />} />}
-        <Route path="/IntercambioHome" element={<IntercambioHome />} />
-        <Route path="/MisMatches" element={<MisMatches />} />
 
         {/* para rutas protegidas */}
         <Route
@@ -54,14 +49,16 @@ function App() {
             </ProtectedRoute>
           }
         />
+
         <Route
-          path="/intercambio/:ISBN/:tipo"
+          path="/intercambioHome"
           element={
             <ProtectedRoute>
-              <Intercambio />
+              <IntercambioHome />
             </ProtectedRoute>
           }
         />
+
         <Route
           path="/chatRoom/:numRoom"
           element={

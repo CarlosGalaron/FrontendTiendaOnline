@@ -55,13 +55,11 @@ const Matches = ({ match }) => {
         <h3>Tu oferta:</h3>
         <p><strong>Título:</strong> {match.mi_oferta.title || "No disponible"}</p>
         <p><strong>Autor:</strong> {match.mi_oferta.author || "No disponible"}</p>
-        <p><strong>Tipo:</strong> {match.mi_oferta.type || "No disponible"}</p>
         <p><strong>Estado:</strong> {match.mi_oferta.state || "No disponible"}</p>
 
         <h3>Su oferta:</h3>
         <p><strong>Título:</strong> {match.su_oferta.title || "No disponible"}</p>
         <p><strong>Autor:</strong> {match.su_oferta.author || "No disponible"}</p>
-        <p><strong>Tipo:</strong> {match.su_oferta.type || "No disponible"}</p>
         <p><strong>Estado:</strong> {match.su_oferta.state || "No disponible"}</p>
       </div>
 
