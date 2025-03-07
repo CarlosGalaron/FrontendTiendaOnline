@@ -179,9 +179,9 @@ h1 {
     max-height: 65px;
     min-height: 65px;
    
-   
     font-size: 1.2em;
-    margin-left: 35px;
+    margin-left: 0;
+    padding: 5px;
     border: solid #5B2333;
     border-radius: 5px;
     background-color: #D3ABB6;

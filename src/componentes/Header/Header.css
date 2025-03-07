@@ -1,169 +1,181 @@
 .header-container{
-    width: 100%;
-    height: 100px;
-    background-color:#F7F4F3;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 0px;
+  width: 100%;
+  height: 100px;
+  background-color:#F7F4F3;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0px;
+  padding-left: 35px;
 
 }
-
+.header-buttons-body{
+ display: flex;
+ justify-content: space-around;
+ align-items: center;
+ width: 100%;
+}
 .header-button{
-    width: 100px;
-    height: 45px;
-    background-color: #D3ABB6;
-    border: 2px solid #5B2333;
-    color: #F7F4F3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 4% 0 4%;
-    font-size: 15px;
-    font-weight:bolder ;
-    cursor: pointer;
-    border-radius: 8px;
+  width: 100px;
+  height: 45px;
+  background-color: #D3ABB6;
+  border: 2px solid #5B2333;
+  color: #F7F4F3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 4% 0 4%;
+  font-size: 15px;
+  font-weight:bolder ;
+  cursor: pointer;
+  border-radius: 8px;
 }
 
 .header-button:hover{
-    background-color: #b86179;
-    color: #5B2333;
-    border: #b86179;
+  background-color: #b86179;
+  color: #5B2333;
+  border: #b86179;
 }
 
 .header-icon_button {
-    background: none;   
-    border: none;    
-    padding: 0;  
-    cursor: pointer; 
-    outline: none;          
-  }
+  background: none;   
+  border: none;    
+  padding: 0;  
+  cursor: pointer; 
+  outline: none;          
+}
 
 .header-icon_container{
-    width: 220px;
+  width: 220px;
 }
 
 .headerH-container{
-    width: 100vw;
-    height: 10vh;
-    background-color:#F7F4F3;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    padding-right: 2em;
+  width: 100vw;
+  height: 10vh;
+  background-color:#F7F4F3;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  padding-right: 2em;
 }
 
 .headerH-icon_container{
-    border: 2px solid black;
-    width: 10vh;
-    height: 10vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    background-color: black;
-    color: white;
+  border: 2px solid black;
+  width: 10vh;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: black;
+  color: white;
 }
 .wellcome-title {
-    font-size: 36px;
-    font-weight: 1000;
-    color: white;
+  font-size: 36px;
+  font-weight: 1000;
+  color: white;
 
 }
 
 .navigate-login-button, .nav-register-button {
-    width: 80px;
-    height: 36px;
-    background-color: #D3ABB6;
-    color: #F7F4F3;
-    border: 2px solid #5B2333;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
-    font-weight: bold;
-    margin: 0 10px;
-    cursor: pointer;
+  width: 80px;
+  height: 36px;
+  background-color: #D3ABB6;
+  color: #F7F4F3;
+  border: 2px solid #5B2333;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0 10px;
+  cursor: pointer;
 }
 
 .navigate-login-button:hover, .nav-register-button:hover {
-    font-size: 16px;
+  font-size: 16px;
 
 }
 
 
 .settings-popup {
-    position: absolute;
-    width: 190px;
-    top: 80px; /* Ajusta según la altura de tu header */
-    right: 30px; /* Ajusta la posición horizontal según sea necesario */
-    background-color: #F7F4F3; /* Color de fondo */
-    border: 2px solid #5B2333; /* Borde de la ventana */
-    border-radius: 5px; /* Bordes redondeados */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
-    padding: 15px; /* Espaciado interno */
-    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
-  }
-  
+  position: absolute;
+  width: 190px;
+  top: 80px; /* Ajusta segÃšn la altura de tu header */
+  right: 30px; /* Ajusta la posiciÃģn horizontal segÃšn sea necesario */
+  background-color: #F7F4F3; /* Color de fondo */
+  border: 2px solid #5B2333; /* Borde de la ventana */
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+  padding: 15px; /* Espaciado interno */
+  z-index: 1000; /* AsegÃšrate de que estÃĐ por encima de otros elementos */
+}
 
-  .use-lout{
-    width: 100%;
-    
-    height: 100%;
-    display: flex;
-    gap: 10px;
-    flex-direction: column;
-    
-   
-  }
-  .settings-button {
-    
-    
-    color: #F7F4F3;
-    background-color: #F7F4F3; /* Color del texto */
-    color: black;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    border-radius: 4px; /* Bordes redondeados */
-    margin: 5px ;
-    margin-left: 15px; /* Margen vertical entre los botones */
-    border: none; /* Negrita para los textos */
-    cursor: pointer; 
-    display: flex;
-    align-items: center;
-    width: auto;
-    height: auto;/* Cambiar el cursor al pasar el mouse */
-    transition: background-color 0.3s; /* Transición para suavizar el cambio de color */
-  }
-  #logout-btn{
-    margin-left: 5px;
-  }
-  #close-b{
-    margin-left: 80%;
-    width: 25px;
-    height: 25px;
-    border: none;
-    background-color: #F7F4F3;
-  }
-  #close{
-    height: 21px;
-    width: 21px;
-  }
+
+.use-lout{
+  width: 100%;
   
-  .settings-button:hover {
-    color: #b86179; /* Color más oscuro al pasar el mouse */
-  }
+  height: 100%;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  
+ 
+}
+.settings-button {
   
   
+  color: #F7F4F3;
+  background-color: #F7F4F3; /* Color del texto */
+  color: black;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border-radius: 4px; /* Bordes redondeados */
+  margin: 5px ;
+  margin-left: 15px; /* Margen vertical entre los botones */
+  border: none; /* Negrita para los textos */
+  cursor: pointer; 
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: auto;/* Cambiar el cursor al pasar el mouse */
+  transition: background-color 0.3s; /* TransiciÃģn para suavizar el cambio de color */
+}
+#logout-btn{
+  margin-left: 5px;
+}
+#close-b{
+  margin-left: 80%;
+  width: 25px;
+  height: 25px;
+  border: none;
+  background-color: #F7F4F3;
+}
+#close{
+  height: 21px;
+  width: 21px;
+}
+
+.settings-button:hover {
+  color: #b86179; /* Color mÃĄs oscuro al pasar el mouse */
+}
+
+
+
+.logout-button:hover {
+  color: red; /* Color mÃĄs oscuro al pasar el mouse */
+}
+.icon-adj{
+  width:45px;
+  margin-right: 15px;
+  transition: 0.4s;
   
-  .logout-button:hover {
-    color: red; /* Color más oscuro al pasar el mouse */
-  }
-  .icon-adj{
-    width:45px;
-    margin-right: 15px;
-    
-  }
+  border-radius: 2px;
+}
+
+.icon-adj:hover{
+  background-color: rgba(0, 0, 0, 0.126);
+}

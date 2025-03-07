@@ -61,12 +61,13 @@ function Header() {
       </button>
 
       {isLoggedIn ? (
-        <>
+        <>  
+        <div className='header-buttons-body'>
           <button className="header-button" onClick={() => navigate('/catalogo')}>Tienda</button>
           <button className="header-button" onClick={() => navigate('/IntercambioHome')}>Intercambio</button>
           <button className="header-button" onClick={() => navigate('/tienda')}>Cesta</button>
           <button className="header-button" onClick={toggleSettings}>Ajustes</button> 
-
+        </div>
 
 
           {showSettings && (

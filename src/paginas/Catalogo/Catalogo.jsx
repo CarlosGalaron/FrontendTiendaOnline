@@ -173,17 +173,19 @@ function Catalogo() {
                     <strong>Estado:</strong> {selectedBook.book_state}
                   </p>
                 )}
+                  <div className="modal-buttons">
+                    <button
+                      onClick={() => {
+                        handleAddToCart(selectedBook);
+                        closeModal();
+                      }}
+                    >
+                      Añadir a cesta
+                    </button>
               </div>
-              <div className="modal-buttons">
-                <button
-                  onClick={() => {
-                    handleAddToCart(selectedBook);
-                    closeModal();
-                  }}
-                >
-                  Añadir a cesta
-                </button>
               </div>
+              
+              
               <button className="close-button" onClick={closeModal}>
                 X
               </button>
