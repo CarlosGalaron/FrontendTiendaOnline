@@ -127,17 +127,15 @@ function ChatRoom({ numRoom: numRoomProp, otroUsuario }) {
   };
 
   const agregarEmoji = (emoji) => {
-    setNuevoMensaje((prev) => prev + emoji);
-    setMostrarEmojis(false);
+    setNuevoMensaje((prev) => (prev ? prev + emoji : emoji)); 
   };
 
   return (
     <div className="App">
-      <h3>Chat con: {otroUsuario || "Cargando..."}</h3>
       <div className="mensajes-container" ref={mensajesContainerRef}>
         <ul className="ul-mensajes">
           {mensajes.map((mensaje, index) => (
-            <li key={index} className={`li-mensaje ${mensaje.usuario === user.name ? "own-message" : ""}`}>
+            <li key={index} className={`li-mensaje ${mensaje.usuario === user.name ? "own-message" : "other-message"}`}>
               {mensaje.usuario}: {mensaje.texto && <span>{mensaje.texto}</span>}
               {mensaje.archivo &&
                 (mensaje.tipoArchivo.startsWith("image/") ? (

@@ -16,8 +16,7 @@
 
 /* Estilos para el contenedor de mensajes */
 .mensajes-container {
-    min-height: 300px; /* Altura mínima */
-    max-height: 400px; /* Altura máxima */
+    height: 360px; /* Altura máxima */
     width: 480px;
     overflow-y: auto; /* Agrega scroll vertical cuando los mensajes exceden el límite */
     padding: 10px;
@@ -65,7 +64,6 @@
     background: white;
     border-radius: 10px;
     padding: 5px;
-    margin: 10px auto;
     width: 480px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     border: 2px solid #5B2333;
@@ -116,7 +114,6 @@
     border: none;
     font-size: 24px;
     cursor: pointer;
-
 }
 
 /* Emoji Selector */
@@ -151,8 +148,8 @@
     background-color: #e1f7ff;
 }
 
-/* Estilo para los enlaces de archivos */
-.archivo-enlace {
+/* Estilo para los enlaces de archivos en mensajes propios */
+.own-message .archivo-enlace {
     color: white;
     text-decoration: none;
     border: 1px solid white;
@@ -161,9 +158,24 @@
     display: inline-block;
 }
 
-.archivo-enlace:hover {
+.own-message .archivo-enlace:hover {
     background-color: #f7f4f3;
     color: #5B2333;
+}
+
+/* Estilo para los enlaces de archivos en mensajes de la otra persona */
+.other-message .archivo-enlace {
+    color: #5B2333;
+    text-decoration: none;
+    border: 1px solid #5B2333;
+    padding: 5px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.other-message .archivo-enlace:hover {
+    background-color: #5B2333;
+    color: white;
 }
 
 /* Estilo para las imágenes enviadas */
@@ -172,4 +184,3 @@
     border-radius: 5px;
     margin-top: 5px;
 }
-

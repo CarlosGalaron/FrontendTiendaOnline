@@ -35,11 +35,12 @@
   }
   
   .chat-item.selected {
-    background-color: #f0f0f0;
+    background-color: #5B2333;
+    color: white;
+    font-weight: bold;
   }
   
   .chat-content {
     width: 70%;
-    padding: 1rem;
   }
   
